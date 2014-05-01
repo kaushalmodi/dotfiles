@@ -1,0 +1,69 @@
+# Emacs mode: -*- CPerl -*-
+# ack documentation: http://beyondgrep.com/documentation/
+
+# Usage: ack [OPTION]... PATTERN [FILES OR DIRECTORIES]
+
+# -r, -R, --recurse             Recurse into subdirectories (default: on)
+# -n, --no-recurse              No descending into subdirectories
+
+# # ignore case
+# -i
+
+# Force the printing of line numbers. ack does not have an explicit option to
+# force showing the line numbers. But forcing to show the file name shows the
+# line numbers
+#-H
+# By default when ack is done on a single file using "ack PATTERN FILE" or
+# by "cat FILE | ack PATTERN" the line numbers are not displayed. Above "-H"
+# option enables that.
+
+# # Do not show file name or line numbers
+# -h
+
+# # Page the output in the case it is more than 1 page long. This is ignored if
+# # output is redirected
+# --pager="less -R"
+
+# # Print all lines, whether matching or not, highlight the matches
+# --passthru
+
+# Count the number of lines in FILE
+# ack -c '' FILE
+
+# Follow the symlinks. Very IMP to set this; otherwise the checked-in files won't be searched!
+--follow
+
+# specify the file extensions to include when searching in verilog
+--type-set=verilog=.v,.sv,.svh,.tv,.h,.vinc
+--type-set=elisp=.el
+
+# ignore directories
+--ignore-dir=.snapshot
+--ignore-dir=.SOS
+--ignore-dir=pei_stuff
+--ignore-dir=INCA_libs
+--ignore-dir=INCA_libs.r
+
+# customize the colors
+# Color options: http://stackoverflow.com/questions/9625316/what-color-options-exist-for-ack-grep-for-colorization-of-output-logs-etc
+# The color strings are case-insensitive
+# foreground: black  red  green  yellow  blue  magenta  cyan  white bright_black
+#             bright_red  bright_green  bright_yellow  bright_blue
+#             bright_magenta  bright_cyan   bright_white
+# background: on_black  on_red  on_green  on_yellow  on_blue   on_magenta
+#             on_cyan   on_white  on_bright_black  on_bright_red
+#             on_bright_green  on_bright_yellow  on_bright_blue   on_bright_magenta
+#             on_bright_cyan   on_bright_white
+
+# --color-match=white on_magenta
+--color-match=white on_bright_blue
+# --color-filename=COLOR
+# --color-lineno=COLOR
+
+# # Do not show highlights
+# --nocolor
+
+# # show 2 lines before the match
+# --before-context=2
+# # show 2 lines after the match
+# --after-context=2

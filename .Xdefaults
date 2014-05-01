@@ -1,0 +1,43 @@
+*customization: -color
+XTerm*termName: xterm-256color
+
+nc.autoStart: True
+vncviewer.forceOwnCmap: true
+Xvnc.IdleTimeout: 0
+
+xterm*saveLines:        500
+! xterm*scrollBar:        true
+xterm*scrollBar:        false
+xterm*cursorColor:      white
+xterm*pointerColor:     white
+xterm*Foreground:       white
+xterm*Background:       black
+xterm*c132:             true
+xterm*loginShell:       false
+
+! Fonts
+! xterm*font: 9x15bold
+! xterm*font: 9x15
+! xterm*font: 7x14
+! xterm*font: 6x12
+
+! XTerm*faceName: DejaVu Sans Mono:size=11
+! XTerm*faceName: Inconsolata:size=11
+! XTerm*faceName: Inconsolata\\-dz:style=dz:size=11
+XTerm*faceName: Inconsolata\\-g:style=g:size=11
+
+XLock.mode: random
+XLock.echokeys: on
+XLock.enablesaver: on
+XLock.usefirst: on
+XLock.allowroot: on
+
+Scrollbar.JumpCursor:   True
+
+AcroRead.Geometry: 800x900-0+0
+AcroRead.DefaultSplitterPos: 237
+
+cdsLibManager*textFontList:-adobe-courier-medium-r-*-*-12-*-*-*-*-*-*-*
+
+emacs.toolBar: 0
+emacs.verticalScrollBars: off
