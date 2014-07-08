@@ -1,6 +1,7 @@
 --exclude=.SOS
 --exclude=.git
 --exclude=nobackup
+--exclude=nobkp
 
 --langdef=systemverilog
 --langmap=systemverilog:.v.vg.sv.svh.tv.vinc
