@@ -1,5 +1,9 @@
+*VT100.allowWindowOps : true
+*VT100.allowTitleOps  : true
+*VT100.allowFontOps   : true
+
 *customization: -color
-XTerm*termName: xterm-256color
+xterm*termName: xterm-256color
 
 nc.autoStart: True
 vncviewer.forceOwnCmap: true
@@ -14,17 +18,39 @@ xterm*Foreground:       white
 xterm*Background:       black
 xterm*c132:             true
 xterm*loginShell:       false
+! xterm*loginshell: 1
 
 ! Fonts
-! xterm*font: 9x15bold
-! xterm*font: 9x15
-! xterm*font: 7x14
-! xterm*font: 6x12
+! xterm*faceName: DejaVu Sans Mono
+! xterm*faceName: Inconsolata
+! xterm*faceName: Inconsolata\\-dz:style=dz
+! xterm*faceName: Inconsolata\\-g:style=g
+! xterm*faceName: Inconsolata\\-dz for Powerline
+xterm*faceName: Source Code Pro for Powerline
+! xterm*faceName: Envy Code R
+xterm*faceSize: 11
 
-! XTerm*faceName: DejaVu Sans Mono:size=11
-! XTerm*faceName: Inconsolata:size=11
-! XTerm*faceName: Inconsolata\\-dz:style=dz:size=11
-XTerm*faceName: Inconsolata\\-g:style=g:size=11
+emacs*font: Envy Code R
+emacs*geometry: 80x24
+
+! Xft settings ---------------------------------------------------------------
+
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+
+xterm*fontMenu*fontdefault*Label: Default
+xterm*locale: 1
+xterm.utf8: 1
+xterm*utf8Title: 1
+
+xterm*bellIsUrgent: 1
+xterm*borderWidth: 0
+
+xterm*xftAntialias: 1
+xterm*cjkWidth: 0
 
 XLock.mode: random
 XLock.echokeys: on
