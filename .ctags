@@ -2,10 +2,16 @@
 --exclude=.git
 --exclude=nobackup
 --exclude=nobkp
+--exclude=tapeout
+--exclude=myLibs
 --exclude=results
---exclude=*.log
 --exclude=dig_impl
---exclude=design_code/str
+--exclude=dig_impl_synopsys
+--exclude=digital/design_code/str
+--exclude=digital/design_code/spyglass
+--exclude=simulation
+--exclude=digital/ip/mbist/Design
+--exclude=*.log
 
 --extra=+q
 
@@ -16,3 +22,5 @@
 
 --langmap=SystemVerilog:.sv.v.svh.vg.tv.vinc
 --languages=SystemVerilog,C,C++,HTML,Lisp,Make,Matlab,Perl,Python,Sh,Tex
+
+--regex-SystemVerilog=/^\s*`define\b\s*(\w+)/`\1/d,define/
