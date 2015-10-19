@@ -55,8 +55,12 @@
 #             on_bright_green  on_bright_yellow  on_bright_blue   on_bright_magenta
 #             on_bright_cyan   on_bright_white
 
+# Below work only with perl 5.18 or higher
+# --color-match=white on_bright_blue
+# end Below work only with perl 5.18 or higher
+
 # --color-match=white on_magenta
---color-match=white on_bright_blue
+--color-match=black on_yellow
 # --color-filename=COLOR
 # --color-lineno=COLOR
 
