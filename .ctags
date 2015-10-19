@@ -12,6 +12,7 @@
 --exclude=simulation
 --exclude=digital/ip/mbist/Design
 --exclude=*.log
+--exclude=notagscan
 
 --extra=+q
 
