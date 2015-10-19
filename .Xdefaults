@@ -14,11 +14,13 @@ xterm*saveLines:        500
 xterm*scrollBar:        false
 xterm*cursorColor:      white
 xterm*pointerColor:     white
-xterm*Foreground:       white
-xterm*Background:       black
 xterm*c132:             true
 xterm*loginShell:       false
 ! xterm*loginshell: 1
+xterm*Foreground:       white
+xterm*Background:       black
+! xterm*Foreground:       black
+! xterm*Background:       white
 
 ! Fonts
 ! xterm*faceName: DejaVu Sans Mono
