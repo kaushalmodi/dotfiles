@@ -1,3 +1,5 @@
+# -*- mode: shell-script -*-
+
 --exclude=.SOS
 --exclude=.git
 --exclude=nobackup
@@ -13,6 +15,8 @@
 --exclude=digital/ip/mbist/Design
 --exclude=*.log
 --exclude=notagscan
+# htags generated HTML files
+--exclude=HTML
 
 --extra=+q
 
