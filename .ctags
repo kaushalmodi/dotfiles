@@ -1,5 +1,38 @@
 # -*- mode: shell-script -*-
 
+# Notes on how to exclude stuff
+# 1. Exclude only the files, not directories, named alpha.txt
+# --exclude=@alpha.txt
+# 2. Exclude dir1/dir2/ and dir3/dir2/ directories
+# --exclude=dir2
+# 3. Exclude dir1/dir2/ but NOT dir3/dir2/ directory
+# --exclude=*dir1/dir2/*
+# Source: https://github.com/universal-ctags/ctags/issues/759
+
+# --exclude=*/digital/design_code/str/*
+# Good - ctags -Re -f /proj/PRJ/sos_$USER/TAGS /proj/PRJ/sos_$USER/.
+# Good - ctags -Re -f TAGS                     /proj/PRJ/sos_$USER/.
+# Bad  - ctags -Re -f /proj/PRJ/sos_$USER/TAGS .
+# Bad  - ctags -Re -f TAGS .
+# Conclusion: When using */ in the beginning of an exclusion path, use absolute
+#             path for search start path when invoking ctags.
+
+# --exclude=digital/design_code/str/*
+# Bad  - ctags -Re -f /proj/PRJ/sos_$USER/TAGS /proj/PRJ/sos_$USER/.
+# Bad  - ctags -Re -f TAGS                     /proj/PRJ/sos_$USER/.
+# Good - ctags -Re -f /proj/PRJ/sos_$USER/TAGS .
+# Good - ctags -Re -f TAGS .
+# Conclusion: When NOT using */ in the beginning of an exclusion path, use relative
+#             path for search start path when invoking ctags.
+
+# --exclude=*digital/design_code/str/* (Note that there is no / after the starting *)
+# Good - ctags -Re -f /proj/PRJ/sos_$USER/TAGS /proj/PRJ/sos_$USER/.
+# Good - ctags -Re -f TAGS                     /proj/PRJ/sos_$USER/.
+# Good - ctags -Re -f /proj/PRJ/sos_$USER/TAGS .
+# Good - ctags -Re -f TAGS .
+# Conclusion: When using * (NOT */) in the beginning of an exclusion path,
+#             either relative or absolute search start path will work.
+
 --exclude=.SOS
 --exclude=.git
 --exclude=nobackup
@@ -9,14 +42,20 @@
 --exclude=results
 --exclude=dig_impl
 --exclude=dig_impl_synopsys
---exclude=digital/design_code/str
---exclude=digital/design_code/spyglass
+--exclude=*digital/design_code/str/*
+--exclude=*digital/design_code/spyglass/*
 --exclude=simulation
---exclude=digital/ip/mbist/Design
+--exclude=*digital/ip/mbist/Design/*
 --exclude=*.log
 --exclude=notagscan
 # htags generated HTML files
 --exclude=HTML
+--exclude=html
+--exclude=arm-none-eabi
+--exclude=gcc-arm-none-eabi
+--exclude=openpyxl-openpyxl-b8099286b8be
+--exclude=openpyxl
+--exclude=gnuarm-4.0.2
 
 --extra=+q
 
