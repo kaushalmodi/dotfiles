@@ -71,5 +71,5 @@ cdsLibManager*textFontList:-adobe-courier-medium-r-*-*-12-*-*-*-*-*-*-*
 emacs.toolBar: 0
 emacs.verticalScrollBars: off
 
-! Enable copying from tmux
-XTerm*disallowedWindowOps: 20,21,SetXprop
+! ! Enable copying from tmux
+! XTerm*disallowedWindowOps: 20,21,SetXprop
