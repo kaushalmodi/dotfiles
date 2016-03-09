@@ -10,28 +10,33 @@
 # Source: https://github.com/universal-ctags/ctags/issues/759
 
 # --exclude=*/digital/design_code/str/*
-# Good - ctags -Re -f /proj/PRJ/sos_$USER/TAGS /proj/PRJ/sos_$USER/.
-# Good - ctags -Re -f TAGS                     /proj/PRJ/sos_$USER/.
-# Bad  - ctags -Re -f /proj/PRJ/sos_$USER/TAGS .
-# Bad  - ctags -Re -f TAGS .
+# Good - ctags -Re -f /proj/PRJ/sos_$USER/TAGS /proj/PRJ/sos_$USER
+# Good - ctags -Re -f TAGS                     /proj/PRJ/sos_$USER
+# Bad  - cd /proj/PRJ/sos_$USER; ctags -Re -f /proj/PRJ/sos_$USER/TAGS .
+# Bad  - cd /proj/PRJ/sos_$USER; ctags -Re -f TAGS .
 # Conclusion: When using */ in the beginning of an exclusion path, use absolute
 #             path for search start path when invoking ctags.
 
 # --exclude=digital/design_code/str/*
-# Bad  - ctags -Re -f /proj/PRJ/sos_$USER/TAGS /proj/PRJ/sos_$USER/.
-# Bad  - ctags -Re -f TAGS                     /proj/PRJ/sos_$USER/.
-# Good - ctags -Re -f /proj/PRJ/sos_$USER/TAGS .
-# Good - ctags -Re -f TAGS .
+# Bad  - ctags -Re -f /proj/PRJ/sos_$USER/TAGS /proj/PRJ/sos_$USER
+# Bad  - ctags -Re -f TAGS                     /proj/PRJ/sos_$USER
+# Good - cd /proj/PRJ/sos_$USER; ctags -Re -f /proj/PRJ/sos_$USER/TAGS .
+# Good - cd /proj/PRJ/sos_$USER; ctags -Re -f TAGS .
 # Conclusion: When NOT using */ in the beginning of an exclusion path, use relative
 #             path for search start path when invoking ctags.
 
+# **PREFERRED METHOD**
 # --exclude=*digital/design_code/str/* (Note that there is no / after the starting *)
-# Good - ctags -Re -f /proj/PRJ/sos_$USER/TAGS /proj/PRJ/sos_$USER/.
-# Good - ctags -Re -f TAGS                     /proj/PRJ/sos_$USER/.
-# Good - ctags -Re -f /proj/PRJ/sos_$USER/TAGS .
-# Good - ctags -Re -f TAGS .
+# Good - ctags -Re -f /proj/PRJ/sos_$USER/TAGS /proj/PRJ/sos_$USER
+# Good - ctags -Re -f TAGS                     /proj/PRJ/sos_$USER
+# Good - cd /proj/PRJ/sos_$USER; ctags -Re -f /proj/PRJ/sos_$USER/TAGS .
+# Good - cd /proj/PRJ/sos_$USER; ctags -Re -f TAGS .
 # Conclusion: When using * (NOT */) in the beginning of an exclusion path,
 #             either relative or absolute search start path will work.
+
+# Do not add "/." after the project root when running ctags
+# Good - ctags -Re -f /proj/PRJ/sos_$USER/TAGS /proj/PRJ/sos_$USER
+# Bad  - ctags -Re -f /proj/PRJ/sos_$USER/TAGS /proj/PRJ/sos_$USER/.
 
 --exclude=.SOS
 --exclude=.git
