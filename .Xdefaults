@@ -3,11 +3,16 @@
 *VT100.allowFontOps   : true
 
 *customization: -color
-xterm*termName: xterm-256color
 
 nc.autoStart: True
 vncviewer.forceOwnCmap: true
-Xvnc.IdleTimeout: 0
+Xvnc.IdleTimeout: false
+
+! xterm settings ---------------------------------------------------------------
+! https://wiki.archlinux.org/index.php/Xterm
+
+xterm*termName: xterm-256color
+xterm*VT100.geometry: 80x32
 
 xterm*saveLines:        500
 ! xterm*scrollBar:        true
@@ -16,25 +21,47 @@ xterm*cursorColor:      white
 xterm*pointerColor:     white
 xterm*c132:             true
 xterm*loginShell:       false
-! xterm*loginshell: 1
+! xterm*loginshell: true
 xterm*Foreground:       white
 xterm*Background:       black
 ! xterm*Foreground:       black
 ! xterm*Background:       white
 
-! Fonts
 ! xterm*faceName: DejaVu Sans Mono
 ! xterm*faceName: Inconsolata
 ! xterm*faceName: Inconsolata\\-dz:style=dz
 ! xterm*faceName: Inconsolata\\-g:style=g
 ! xterm*faceName: Inconsolata\\-dz for Powerline
-xterm*faceName: Source Code Pro for Powerline
-! xterm*faceName: Envy Code R
-xterm*faceSize: 11
+! xterm*faceName: Source Code Pro for Powerline
+xterm*faceName: Envy Code R
+xterm*faceSize: 13
+! xterm*fontMenu*fontdefault*Label: Default
+xterm*xftAntialias: true
+xterm*cjkWidth: false
+
+xterm*locale: true
+xterm.utf8: true
+xterm*utf8Title: true
+
+xterm*bellIsUrgent: true
+xterm*borderWidth: false
+
+! Enable copying from tmux
+xterm*disallowedWindowOps: 20,21,SetXprop
+
+! Copy selections to Clipboard instead of to Primary
+xterm*selectToClipboard: true
+
+xterm*metaSendsEscape: true
+
+! emacs settings ---------------------------------------------------------------
 
 ! emacs*font: Envy Code R
 emacs*font: PragmataPro
-emacs*geometry: 80x24
+emacs*geometry: 80x32
+
+emacs.toolBar: false
+emacs.verticalScrollBars: false
 
 ! Xft settings ---------------------------------------------------------------
 
@@ -44,22 +71,11 @@ Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
 
-xterm*fontMenu*fontdefault*Label: Default
-xterm*locale: 1
-xterm.utf8: 1
-xterm*utf8Title: 1
-
-xterm*bellIsUrgent: 1
-xterm*borderWidth: 0
-
-xterm*xftAntialias: 1
-xterm*cjkWidth: 0
-
 XLock.mode: random
-XLock.echokeys: on
-XLock.enablesaver: on
-XLock.usefirst: on
-XLock.allowroot: on
+XLock.echokeys: true
+XLock.enablesaver: true
+XLock.usefirst: true
+XLock.allowroot: true
 
 Scrollbar.JumpCursor:   True
 
@@ -67,9 +83,3 @@ AcroRead.Geometry: 800x900-0+0
 AcroRead.DefaultSplitterPos: 237
 
 cdsLibManager*textFontList:-adobe-courier-medium-r-*-*-12-*-*-*-*-*-*-*
-
-emacs.toolBar: 0
-emacs.verticalScrollBars: off
-
-! ! Enable copying from tmux
-! XTerm*disallowedWindowOps: 20,21,SetXprop
