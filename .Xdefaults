@@ -46,8 +46,8 @@ xterm*utf8Title: true
 xterm*bellIsUrgent: true
 xterm*borderWidth: false
 
-! Enable copying from tmux
-xterm*disallowedWindowOps: 20,21,SetXprop
+! ! Enable copying from tmux
+! xterm*disallowedWindowOps: 20,21,SetXprop
 
 ! Copy selections to Clipboard instead of to Primary
 xterm*selectToClipboard: true
@@ -58,6 +58,7 @@ xterm*metaSendsEscape: true
 
 ! emacs*font: Envy Code R
 emacs*font: PragmataPro
+! emacs*font: Monoid
 emacs*geometry: 80x32
 
 emacs.toolBar: false
