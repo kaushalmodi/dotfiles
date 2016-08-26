@@ -1,7 +1,7 @@
 # Emacs mode: -*- Shell-script -*-
 #
 # Copyright (c) 1998, 1999, 2000, 2001, 2002, 2003, 2010, 2011, 2013,
-#	2015
+#	2015, 2016
 #	Tama Communications Corporation
 #
 # This file is part of GNU GLOBAL.
@@ -25,6 +25,13 @@
 # The format is similar to termcap(5). You can specify a target with
 # GTAGSLABEL environment variable. Default target is 'default'.
 #
+# If you want to have a common record for yourself, it is recommended to
+# use the following method:
+#
+# default:\
+#	:tc=default@~/.globalrc:\	<= Load the default record from ~/.globalrc.
+#	:tc=native:
+#
 default:\
 	:tc=native:
 native:\
@@ -33,6 +40,8 @@ user:\
 	:tc=user-custom:tc=htags:
 ctags:\
 	:tc=exuberant-ctags:tc=htags:
+new-ctags:\
+	:tc=universal-ctags:tc=htags:
 pygments:\
 	:tc=pygments-parser:tc=htags:
 #---------------------------------------------------------------------
@@ -40,7 +49,7 @@ pygments:\
 # See gtags(1).
 #---------------------------------------------------------------------
 common:\
-	:skip=HTML/,HTML.pub/,tags,TAGS,ID,y.tab.c,y.tab.h,gtags.files,cscope.files,cscope.out,cscope.po.out,cscope.in.out,SCCS/,RCS/,CVS/,CVSROOT/,{arch}/,autom4te.cache/,*.orig,*.rej,*.bak,*~,#*#,*.swp,*.tmp,*_flymake.*,*_flymake,nobackup/,nobkp/,tapeout/,myLibs/,.SOS/,.git/,results/,dig_impl/,str/,simulation/,docs/html/src/,docs/html/files/,notagscan/,HTML/,html/,arm-none-eabi/,gcc-arm-none-eabi/,gnuarm-4.0.2/,openpyxl-openpyxl-b8099286b8be/,openpyxl/:
+	:skip=HTML/,HTML.pub/,tags,TAGS,ID,y.tab.c,y.tab.h,gtags.files,cscope.files,cscope.out,cscope.po.out,cscope.in.out,SCCS/,RCS/,CVS/,CVSROOT/,{arch}/,autom4te.cache/,*.orig,*.rej,*.bak,*~,#*#,*.swp,*.tmp,*_flymake.*,*_flymake,*.o,*.a,*.so,*.lo,*.zip,*.gz,*.bz2,*.xz,*.lzh,*.Z,*.tgz,*.min.js,*min.css,nobackup/,nobkp/,tapeout/,myLibs/,.SOS/,.git/,results/,dig_impl/,str/,simulation/,docs/html/src/,docs/html/files/,notagscan/,HTML/,html/,arm-none-eabi/,gcc-arm-none-eabi/,gnuarm-4.0.2/,openpyxl-openpyxl-b8099286b8be/,openpyxl/:
 #
 # Built-in parsers.
 #
@@ -57,56 +66,51 @@ user-custom|User custom plugin parser:\
 	:langmap=c\:.c.h:\
 	:gtags_parser=c\:$libdir/gtags/user-custom.la:
 #
-# Plug-in parser to use Universal/Exuberant Ctags.
+# Plug-in parser to use Exuberant Ctags.
 #
-universal-ctags|exuberant-ctags|plugin-example|setting to use Exuberant Ctags plug-in parser:\
+exuberant-ctags|plugin-example|setting to use Exuberant Ctags plug-in parser:\
 	:tc=common:\
-	:langmap=Ada\:.adb.ads.Ada:\
-# Unsupported: .29[kK] *.[68][68][kKsSxX] *.[xX][68][68]
+	:ctagscom=/home/kmodi/usr_local/apps/6/ctags/universal/bin/ctags:\
+	:ctagslib=$libdir/gtags/exuberant-ctags.la:\
+	:tc=common-ctags-maps:
+#
+# A common map for both Exuberant Ctags and Universal Ctags.
+# Don't include definitions of ctagscom and ctagslib in this entry.
+#
+common-ctags-maps:\
+# Ant      *.build.xml				(out of support)
+# Asm      *.[68][68][kKsSxX] *.[xX][68][68]	(out of support)
 	:langmap=Asm\:.asm.ASM.s.S.A51.29k.29K:\
 	:langmap=Asp\:.asp.asa:\
 	:langmap=Awk\:.awk.gawk.mawk:\
 	:langmap=Basic\:.bas.bi.bb.pb:\
 	:langmap=BETA\:.bet:\
-	:langmap=Clojure\:.bet:\
 	:langmap=C\:.c:\
-	:langmap=C++\:.c++.cc.cp.cpp.cxx.h.h++.hh.hp.hpp.hxx.inl:\
-	:langmap=CSS\:.css:\
+	:langmap=C++\:.c++.cc.cp.cpp.cxx.h.h++.hh.hp.hpp.hxx:\
 	:langmap=C#\:.cs:\
 	:langmap=Cobol\:.cbl.cob.CBL.COB:\
-	:langmap=D\:.d.di:\
-	:langmap=Diff\:.diff.patch:\
-	:langmap=DTS\:.dts.dtsi:\
 	:langmap=DosBatch\:.bat.cmd:\
 	:langmap=Eiffel\:.e:\
 	:langmap=Erlang\:.erl.ERL.hrl.HRL:\
-	:langmap=Falcon\:.fal.ftd:\
 	:langmap=Flex\:.as.mxml:\
-	:langmap=Fortran\:.f.for.ftn.f77.f90.f95.f03.f08.f15:\
-	:langmap=Go\:.go:\
+	:langmap=Fortran\:.f.for.ftn.f77.f90.f95:\
 	:langmap=HTML\:.htm.html:\
 	:langmap=Java\:.java:\
 	:langmap=JavaScript\:.js:\
-	:langmap=JSON\:.json:\
 	:langmap=Lisp\:.cl.clisp.el.l.lisp.lsp:\
 	:langmap=Lua\:.lua:\
-# Unsupported: [Mm]akefile GNUmakefile
+# Make	[Mm]akefile GNUmakefile			(out of support)
 	:langmap=Make\:.mak.mk:\
 	:langmap=MatLab\:.m:\
-	:langmap=ObjectiveC\:.mm.m.h:\
-	:langmap=OCaml\:.ml.mli.aug:\
+	:langmap=OCaml\:.ml.mli:\
 	:langmap=Pascal\:.p.pas:\
 	:langmap=Perl\:.pl.pm.plx.perl:\
-	:langmap=Perl6\:.p6.pm6.pm.pl6:\
-	:langmap=PHP\:.php.php3.php4.php5.phtml:\
+	:langmap=PHP\:.php.php3.phtml:\
 	:langmap=Python\:.py.pyx.pxd.pxi.scons:\
-	:langmap=R\:.r.R.s.q:\
 	:langmap=REXX\:.cmd.rexx.rx:\
-	:langmap=reStructuredText\:.rest.reST.rst:\
 	:langmap=Ruby\:.rb.ruby:\
-	:langmap=Rust\:.rs:\
 	:langmap=Scheme\:.SCM.SM.sch.scheme.scm.sm:\
-	:langmap=Sh\:.sh.SH.bsh.bash.ksh.zsh.ash:\
+	:langmap=Sh\:.sh.SH.bsh.bash.ksh.zsh:\
 	:langmap=SLang\:.sl:\
 	:langmap=SML\:.sml.sig:\
 	:langmap=SQL\:.sql:\
@@ -114,60 +118,37 @@ universal-ctags|exuberant-ctags|plugin-example|setting to use Exuberant Ctags pl
 	:langmap=Tex\:.tex:\
 	:langmap=Vera\:.vr.vri.vrh:\
 	:langmap=SystemVerilog\:.sv.v.svh.vg.tv.vinc:\
-	:langmap=SystemVerilog\:.sv.v.svh.vg.tv.vinc:\
 	:langmap=VHDL\:.vhdl.vhd:\
-# Unsupported: vimrc [._]vimrc gvimrc [._]gvimrc
-	:langmap=Vim\:.vim.vba:\
-	:langmap=WindRes\:.rc:\
+	:langmap=Vim\:.vim:\
 	:langmap=YACC\:.y:\
-	:langmap=Zephir\:.zep:\
-	:langmap=coffee\:.coffee:\
-	:langmap=ctags\:.ctags:\
-	:langmap=gdbinit\:.gdb.gdbinit:\
-	:langmap=m4\:.m4.spt:\
-	:ctagslib=$libdir/gtags/exuberant-ctags.la:\
-	:gtags_parser=Ada\:$ctagslib:\
 	:gtags_parser=Asm\:$ctagslib:\
 	:gtags_parser=Asp\:$ctagslib:\
 	:gtags_parser=Awk\:$ctagslib:\
 	:gtags_parser=Basic\:$ctagslib:\
 	:gtags_parser=BETA\:$ctagslib:\
-	:gtags_parser=Clojure\:$ctagslib:\
 	:gtags_parser=C\:$ctagslib:\
 	:gtags_parser=C++\:$ctagslib:\
-	:gtags_parser=CSS\:$ctagslib:\
 	:gtags_parser=C#\:$ctagslib:\
 	:gtags_parser=Cobol\:$ctagslib:\
-	:gtags_parser=D\:$ctagslib:\
-	:gtags_parser=Diff\:$ctagslib:\
-	:gtags_parser=DTS\:$ctagslib:\
 	:gtags_parser=DosBatch\:$ctagslib:\
 	:gtags_parser=Eiffel\:$ctagslib:\
 	:gtags_parser=Erlang\:$ctagslib:\
-	:gtags_parser=Falcon\:$ctagslib:\
 	:gtags_parser=Flex\:$ctagslib:\
 	:gtags_parser=Fortran\:$ctagslib:\
-	:gtags_parser=Go\:$ctagslib:\
 	:gtags_parser=HTML\:$ctagslib:\
 	:gtags_parser=Java\:$ctagslib:\
 	:gtags_parser=JavaScript\:$ctagslib:\
-	:gtags_parser=JSON\:$ctagslib:\
 	:gtags_parser=Lisp\:$ctagslib:\
 	:gtags_parser=Lua\:$ctagslib:\
 	:gtags_parser=Make\:$ctagslib:\
 	:gtags_parser=MatLab\:$ctagslib:\
-	:gtags_parser=ObjectiveC\:$ctagslib:\
 	:gtags_parser=OCaml\:$ctagslib:\
 	:gtags_parser=Pascal\:$ctagslib:\
 	:gtags_parser=Perl\:$ctagslib:\
-	:gtags_parser=Perl6\:$ctagslib:\
 	:gtags_parser=PHP\:$ctagslib:\
 	:gtags_parser=Python\:$ctagslib:\
-	:gtags_parser=R\:$ctagslib:\
 	:gtags_parser=REXX\:$ctagslib:\
-	:gtags_parser=reStructuredText\:$ctagslib:\
 	:gtags_parser=Ruby\:$ctagslib:\
-	:gtags_parser=Rust\:$ctagslib:\
 	:gtags_parser=Scheme\:$ctagslib:\
 	:gtags_parser=Sh\:$ctagslib:\
 	:gtags_parser=SLang\:$ctagslib:\
@@ -177,20 +158,83 @@ universal-ctags|exuberant-ctags|plugin-example|setting to use Exuberant Ctags pl
 	:gtags_parser=Tex\:$ctagslib:\
 	:gtags_parser=Vera\:$ctagslib:\
 	:gtags_parser=SystemVerilog\:$ctagslib:\
-	:gtags_parser=SystemVerilog\:$ctagslib:\
 	:gtags_parser=VHDL\:$ctagslib:\
 	:gtags_parser=Vim\:$ctagslib:\
-	:gtags_parser=WindRes\:$ctagslib:\
-	:gtags_parser=YACC\:$ctagslib:\
-	:gtags_parser=Zephir\:$ctagslib:\
-	:gtags_parser=coffee\:$ctagslib:\
+	:gtags_parser=YACC\:$ctagslib:
+#
+# Plug-in parser to use Universal Ctags.
+#
+universal-ctags|setting to use Universal Ctags plug-in parser:\
+	:tc=common:\
+	:ctagscom=/home/kmodi/usr_local/apps/6/ctags/universal/bin/ctags:\
+	:ctagslib=$libdir/gtags/universal-ctags.la:\
+	:tc=common-ctags-maps:\
+	:langmap=Ada\:.adb.ads.Ada:\
+# Please uncomment to use this entry.
+#	:langmap=Ant\:.xml:\
+	:langmap=Ant\:.ant:\
+	:langmap=Clojure\:.clj:\
+	:langmap=CoffeeScript\:.coffee:\
+	:langmap=C++\:.inl:\
+	:langmap=CSS\:.css:\
+	:langmap=ctags\:.ctags:\
+	:langmap=D\:.d.di:\
+	:langmap=Diff\:.diff.patch:\
+	:langmap=DTS\:.dts.dtsi:\
+	:langmap=Falcon\:.fal.ftd:\
+	:langmap=Fortran\:.f03.f08.f15:\
+# gdbinit .gdbinit				(out of support)
+	:langmap=gdbinit\:.gdb:\
+	:langmap=Go\:.go:\
+	:langmap=JSON\:.json:\
+	:langmap=m4\:.m4.spt:\
+	:langmap=ObjectiveC\:.mm.m.h:\
+	:langmap=OCaml\:.aug:\
+	:langmap=Perl\:.ph:\
+	:langmap=Perl6\:.p6.pm6.pm.pl6:\
+	:langmap=PHP\:.php4.php5.php7:\
+	:langmap=R\:.r.R.s.q:\
+	:langmap=reStructuredText\:.rest.reST.rst:\
+	:langmap=Rust\:.rs:\
+	:langmap=Sh\:.ash:\
+	:langmap=SystemVerilog\:.sv.v.svh.vg.tv.vinc:\
+# Vim	vimrc [._]vimrc gvimrc [._]gvimrc	(out of support)
+	:langmap=Vim\:.vba:\
+	:langmap=WindRes\:.rc:\
+	:langmap=Zephir\:.zep:\
+# Please uncomment to use this entry.
+#	:langmap=DBusIntrospect\:.xml:\
+#	:langmap=Glade\:.glade:\
+	:gtags_parser=Ada\:$ctagslib:\
+	:gtags_parser=Ant\:$ctagslib:\
+	:gtags_parser=Clojure\:$ctagslib:\
+	:gtags_parser=CoffeeScript\:$ctagslib:\
+	:gtags_parser=CSS\:$ctagslib:\
 	:gtags_parser=ctags\:$ctagslib:\
+	:gtags_parser=D\:$ctagslib:\
+	:gtags_parser=Diff\:$ctagslib:\
+	:gtags_parser=DTS\:$ctagslib:\
+	:gtags_parser=Falcon\:$ctagslib:\
 	:gtags_parser=gdbinit\:$ctagslib:\
-	:gtags_parser=m4\:$ctagslib:
+	:gtags_parser=Go\:$ctagslib:\
+	:gtags_parser=JSON\:$ctagslib:\
+	:gtags_parser=m4\:$ctagslib:\
+	:gtags_parser=ObjectiveC\:$ctagslib:\
+	:gtags_parser=Perl6\:$ctagslib:\
+	:gtags_parser=R\:$ctagslib:\
+	:gtags_parser=reStructuredText\:$ctagslib:\
+	:gtags_parser=Rust\:$ctagslib:\
+	:gtags_parser=SystemVerilog\:$ctagslib:\
+	:gtags_parser=WindRes\:$ctagslib:\
+	:gtags_parser=Zephir\:$ctagslib:\
+	:gtags_parser=DBusIntrospect\:$ctagslib:\
+	:gtags_parser=Glade\:$ctagslib:
 #
 # Plug-in parser to use Pygments.
 #
 pygments-parser|Pygments plug-in parser:\
+	:ctagscom=/home/kmodi/usr_local/apps/6/ctags/universal/bin/ctags:\
+	:pygmentslib=$libdir/gtags/pygments-parser.la:\
 	:tc=common:\
 	:langmap=ABAP\:.abap:\
 	:langmap=ANTLR\:.G.g:\
@@ -343,7 +387,6 @@ pygments-parser|Pygments plug-in parser:\
 	:langmap=XQuery\:.xqy.xquery.xq.xql.xqm:\
 	:langmap=XSLT\:.xsl.xslt.xpl:\
 	:langmap=Xtend\:.xtend:\
-	:pygmentslib=$libdir/gtags/pygments-parser.la:\
 	:gtags_parser=ABAP\:$pygmentslib:\
 	:gtags_parser=ANTLR\:$pygmentslib:\
 	:gtags_parser=ActionScript3\:$pygmentslib:\
