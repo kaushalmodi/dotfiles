@@ -1,0 +1,201 @@
+{
+    "_comment_this_file_location": "${HOME}/.config/peco/config.json",
+
+    "Prompt": "QUERY >",
+
+    "StickySelection": true,
+
+    "InitialFilter": "Regexp",
+
+    "_CommentAvailableKeys": [
+        "C-a ... C-z",
+        "C-2 ... C-8",
+        "C-[",
+        "C-]",
+        "C-~",
+        "C-_",
+        "C-\\ -- Note that you need to escape the backslash like this",
+        "C-/",
+        "C-Space",
+        "F1 ... F12",
+        "Esc",
+        "Tab",
+        "Enter",
+        "Insert",
+        "Delete",
+        "BS",
+        "BS2",
+        "Home",
+        "End",
+        "Pgup",
+        "Pgdn",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "MouseLeft",
+        "MouseMiddle",
+        "MouseRight"
+    ],
+
+    "_comment_available_actions": [
+        "| peco.ForwardChar                  | Move caret forward 1 character                                                  |",
+        "| peco.BackwardChar                 | Move caret backward 1 character                                                 |",
+        "| peco.ForwardWord                  | Move caret forward 1 word                                                       |",
+        "| peco.BackwardWord                 | Move caret backward 1 word                                                      |",
+        "| peco.BackToInitialFilter          | Switch to first filter in the list                                              |",
+        "| peco.BeginningOfLine              | Move caret to the beginning of line                                             |",
+        "| peco.EndOfLine                    | Move caret to the end of line                                                   |",
+        "| peco.EndOfFile                    | Delete one character forward, otherwise exit from peco with failure status      |",
+        "| peco.DeleteForwardChar            | Delete one character forward                                                    |",
+        "| peco.DeleteBackwardChar           | Delete one character backward                                                   |",
+        "| peco.DeleteForwardWord            | Delete one word forward                                                         |",
+        "| peco.DeleteBackwardWord           | Delete one word backward                                                        |",
+        "| peco.InvertSelection              | Inverts the selected lines                                                      |",
+        "| peco.KillBeginningOfLine          | Delete the characters under the cursor backward until the beginning of the line |",
+        "| peco.KillEndOfLine                | Delete the characters under the cursor until the end of the line                |",
+        "| peco.DeleteAll                    | Delete all entered characters                                                   |",
+        "| peco.RefreshScreen                | Redraws the screen. Note that this effectively re-runs your query               |",
+        "| peco.ScrollPageDown               | Moves the selected line cursor for an entire page, downwards                    |",
+        "| peco.ScrollPageUp                 | Moves the selected line cursor for an entire page, upwards                      |",
+        "| peco.SelectUp                     | Moves the selected line cursor to one line above                                |",
+        "| peco.SelectDown                   | Moves the selected line cursor to one line below                                |",
+        "| peco.ScrollLeft                   | Scrolls the screen to the left                                                  |",
+        "| peco.ScrollRight                  | Scrolls the screen to the right                                                 |",
+        "| peco.ToggleSelection              | Selects the current line, and saves it                                          |",
+        "| peco.ToggleSelectionAndSelectNext | Selects the current line, saves it, and proceeds to the next line               |",
+        "| peco.ToggleSingleKeyJump          | Enables SingleKeyJump mode a.k.a. \"hit-a-hint\"                                |",
+        "| peco.SelectNone                   | Remove all saved selections                                                     |",
+        "| peco.SelectAll                    | Selects the all line, and save it                                               |",
+        "| peco.SelectVisible                | Selects the all visible line, and save it                                       |",
+        "| peco.ToggleQuery                  | Toggle list between filterd by query and not filterd.                           |",
+        "| peco.ToggleRangeMode              | Start selecting by range, or append selecting range to selections               |",
+        "| peco.CancelRangeMode              | Finish selecting by range and cancel range selection                            |",
+        "| peco.RotateFilter                 | Rotate between filters (by default, ignore-case/no-ignore-case)                 |",
+        "| peco.Finish                       | Exits from peco with success status                                             |",
+        "| peco.Cancel                       | Exits from peco with failure status, or cancel select mode                      |"
+    ],
+
+    "_comment_KeymapDefault": {
+        "Esc"            : "peco.Cancel",
+        "C-c"            : "peco.Cancel",
+        "Enter"          : "peco.Finish",
+        "C-f"            : "peco.ForwardChar",
+        "C-a"            : "peco.BeginningOfLine",
+        "C-b"            : "peco.BackwardChar",
+        "C-d"            : "peco.DeleteForwardChar",
+        "C-e"            : "peco.EndOfLine",
+        "C-k"            : "peco.KillEndOfLine",
+        "C-u"            : "peco.KillBeginningOfLine",
+        "BS"             : "peco.DeleteBackwardChar",
+        "C-8"            : "peco.DeleteBackwardChar",
+        "C-w"            : "peco.DeleteBackwardWord",
+        "C-g"            : "peco.SelectNone",
+        "C-n"            : "peco.SelectDown",
+        "C-p"            : "peco.SelectUp",
+        "C-r"            : "peco.RotateFilter",
+        "C-t"            : "peco.ToggleQuery",
+        "C-Space"        : "peco.ToggleSelectionAndSelectNext",
+        "ArrowUp"        : "peco.SelectUp",
+        "ArrowDown"      : "peco.SelectDown",
+        "ArrowLeft"      : "peco.ScrollPageUp",
+        "ArrowRight"     : "peco.ScrollPageDown",
+        "_comment_M-C-8" : "For some reason, M-Backspace is interpreted as M-C-8 by peco.",
+        "_comment"       : [
+            "If there is a conflict in the key map, the longest sequence always",
+            "wins. So In the above example, if you add another sequence,",
+            "say, \"C-u,C-f\", then the above peco.KillBeginningOfLine will never",
+            "be invoked."
+        ]
+    },
+
+    "Action": {
+        "my.SelectFourDownwards": [
+            "peco.ToggleRangeMode",
+            "peco.SelectDown",
+            "peco.SelectDown",
+            "peco.SelectDown",
+            "peco.ToggleRangeMode"
+        ],
+
+        "my.ToggleSelectionInAboveLine": [
+            "peco.SelectUp",
+            "peco.ToggleSelectionAndSelectNext"
+        ],
+
+        "my.SelectAllAndFinish": [
+            "peco.SelectAll",
+            "peco.Finish"
+        ]
+    },
+
+    "Keymap": {
+        "C-x,h"         : "peco.SelectAll",
+        "M-g"           : "peco.SelectNone",
+        "M-f"           : "my.SelectFourDownwards",
+        "C-u,C-n"       : "my.SelectFourDownwards",
+        "C-u,ArrowDown" : "my.SelectFourDownwards",
+        "M-r"           : "peco.ToggleRangeMode",
+        "C-u,C-Space"   : "my.ToggleSelectionInAboveLine",
+        "C-x,C-x"       : "my.SelectAllAndFinish",
+
+        "F5"            : "peco.RefreshScreen",
+
+        "M-v"           : "peco.ScrollPageUp",
+        "C-v"           : "peco.ScrollPageDown",
+
+        "M-c"           : "peco.RotateFilter",
+
+        "M-d"           : "peco.DeleteForwardWord",
+        "M-C-8"         : "peco.DeleteBackwardWord",
+
+        "C-g"           : "peco.Cancel",
+        "C-x,C-c"       : "peco.Cancel"
+    },
+
+    "_comment_StyleHelp": {
+        "Keywords": [
+            "| Query          | for query line               |",
+            "| Basic          | for unselected lines         |",
+            "| Selected       | for the current line         |",
+            "| SavedSelection | for saved selection lines    |",
+            "| Matched        | for matched strings in lines |"
+        ],
+        "Foreground Colors": [
+            "black",
+            "red",
+            "green",
+            "yellow",
+            "blue",
+            "magenta",
+            "cyan",
+            "white"
+        ],
+        "Background Colors": [
+            "on_black",
+            "on_red",
+            "on_green",
+            "on_yellow",
+            "on_blue",
+            "on_magenta",
+            "on_cyan",
+            "on_white"
+        ],
+        "Attributes": [
+            "bold",
+            "underline",
+            "reverse",
+            "on_bold (this attribute actually makes the background blink on some platforms/environments, e.g. linux console, xterm...)"
+        ]
+    },
+
+    "Style": {
+        "Query"          : ["yellow"  , "on_default"],
+        "Basic"          : ["default" , "on_default"],
+        "Selected"       : ["black"   , "on_white"],
+        "SavedSelection" : ["white"   , "on_blue"   , "bold"],
+        "Matched"        : ["red"     , "on_default", "bold"]
+    },
+
+    "_comment_last_json_element_without_comma": true
+}
