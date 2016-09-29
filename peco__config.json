@@ -136,7 +136,6 @@
         "C-u,C-n"       : "my.SelectFourDownwards",
         "C-u,ArrowDown" : "my.SelectFourDownwards",
         "M-r"           : "peco.ToggleRangeMode",
-        "C-u,C-Space"   : "my.ToggleSelectionInAboveLine",
         "C-x,C-x"       : "my.SelectAllAndFinish",
 
         "F5"            : "peco.RefreshScreen",
@@ -151,6 +150,10 @@
 
         "C-g"           : "peco.Cancel",
         "C-x,C-c"       : "peco.Cancel"
+    },
+
+    "_comment_KeymapExperimental": {
+        "C-u,C-Space"   : "my.ToggleSelectionInAboveLine"
     },
 
     "_comment_StyleHelp": {
