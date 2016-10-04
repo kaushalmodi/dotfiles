@@ -148,14 +148,12 @@
         "M-d"           : "peco.DeleteForwardWord",
         "M-C-8"         : "peco.DeleteBackwardWord",
 
+        "C-u,C-Space"   : "my.ToggleSelectionInAboveLine",
         "C-g"           : "peco.Cancel",
         "C-x,C-c"       : "peco.Cancel"
     },
 
-    "_comment_KeymapExperimental": {
-        "C-u,C-Space"   : "my.ToggleSelectionInAboveLine"
-    },
-
+    
     "_comment_StyleHelp": {
         "Keywords": [
             "| Query          | for query line               |",
