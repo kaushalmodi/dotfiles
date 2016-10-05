@@ -17,20 +17,23 @@
 # *
 # Configuration file for GNU GLOBAL source code tag system.
 #
-# Basically, GLOBAL doesn't need this file ('gtags.conf'), because it has
-# default values in itsself. If you have the file as '/etc/gtags.conf' or
-# "$HOME/.globalrc" in your system then GLOBAL overwrite the default values
-# with the values in the file.
+# Basically, GLOBAL doesn't need this configuration file ('gtags.conf'),
+# because it has default values in itsself. If you have this file as
+# '/etc/gtags.conf' or "$HOME/.globalrc" then GLOBAL overwrite the default
+# values with values in the file.
+# Configuration file is also necessary to use plug-in parsers.
 #
 # The format is similar to termcap(5). You can specify a target with
 # GTAGSLABEL environment variable. Default target is 'default'.
 #
-# If you want to have a common record for yourself, it is recommended to
+# If you want to have default values for yourself, it is recommended to
 # use the following method:
 #
 # default:\
-#	:tc=default@~/.globalrc:\	<= Load the default record from ~/.globalrc.
+#	:tc=default@~/.globalrc:\	<= includes default values from ~/.globalrc.
 #	:tc=native:
+#
+# Please refer to gtags.conf(5) for details.
 #
 default:\
 	:tc=native:
