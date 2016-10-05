@@ -130,13 +130,15 @@
     },
 
     "Keymap": {
+        "C-x,C-x"       : "peco.SelectAll",
         "C-x,h"         : "peco.SelectAll",
-        "M-g"           : "peco.SelectNone",
+
         "M-f"           : "my.SelectFourDownwards",
         "C-u,C-n"       : "my.SelectFourDownwards",
         "C-u,ArrowDown" : "my.SelectFourDownwards",
         "M-r"           : "peco.ToggleRangeMode",
-        "C-x,C-x"       : "my.SelectAllAndFinish",
+
+        "C-x,i"         : "peco.InvertSelection",
 
         "F5"            : "peco.RefreshScreen",
 
@@ -149,11 +151,11 @@
         "M-C-8"         : "peco.DeleteBackwardWord",
 
         "C-u,C-Space"   : "my.ToggleSelectionInAboveLine",
-        "C-g"           : "peco.Cancel",
+
         "C-x,C-c"       : "peco.Cancel"
     },
 
-    
+
     "_comment_StyleHelp": {
         "Keywords": [
             "| Query          | for query line               |",
