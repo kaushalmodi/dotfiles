@@ -11,48 +11,131 @@ Xvnc.IdleTimeout: false
 ! xterm settings ---------------------------------------------------------------
 ! https://wiki.archlinux.org/index.php/Xterm
 
-xterm*termName: xterm-256color
-xterm*VT100.geometry: 80x32
+XTerm*termName: xterm-256color
+XTerm*VT100.geometry: 80x32
 
-xterm*saveLines:        500
-! xterm*scrollBar:        true
-xterm*scrollBar:        false
-xterm*cursorColor:      white
-xterm*pointerColor:     white
-xterm*c132:             true
-xterm*loginShell:       false
-! xterm*loginshell: true
-xterm*Foreground:       white
-xterm*Background:       black
-! xterm*Foreground:       black
-! xterm*Background:       white
+XTerm*saveLines:        500
+! XTerm*scrollBar:        true
+XTerm*scrollBar:        false
+XTerm*cursorColor:      white
+XTerm*pointerColor:     white
+XTerm*c132:             true
+XTerm*loginShell:       false
+! XTerm*loginshell: true
+XTerm*Foreground:       white
+XTerm*Background:       black
+! XTerm*Foreground:       black
+! XTerm*Background:       white
 
-! xterm*faceName: DejaVu Sans Mono
-! xterm*faceName: Inconsolata
-! xterm*faceName: Inconsolata\\-dz:style=dz
-! xterm*faceName: Inconsolata\\-g:style=g
-! xterm*faceName: Inconsolata\\-dz for Powerline
-! xterm*faceName: Source Code Pro for Powerline
-xterm*faceName: Envy Code R
-xterm*faceSize: 13
-! xterm*fontMenu*fontdefault*Label: Default
-xterm*xftAntialias: true
-xterm*cjkWidth: false
+! XTerm*faceName: DejaVu Sans Mono
+! XTerm*faceName: Inconsolata
+! XTerm*faceName: Inconsolata\\-dz:style=dz
+! XTerm*faceName: Inconsolata\\-g:style=g
+! XTerm*faceName: Inconsolata\\-dz for Powerline
+! XTerm*faceName: Source Code Pro for Powerline
+XTerm*faceName: Envy Code R
+XTerm*faceSize: 13
+xterm.italicFont: xft:Envy Code R:italic:autohint=true
+! XTerm*fontMenu*fontdefault*Label: Default
+XTerm*xftAntialias: true
+XTerm*cjkWidth: false
 
-xterm*locale: true
+XTerm*locale: true
 xterm.utf8: true
-xterm*utf8Title: true
+XTerm*utf8Title: true
 
-xterm*bellIsUrgent: true
-xterm*borderWidth: false
+XTerm*bellIsUrgent: true
+XTerm*borderWidth: false
+
+! The default Alt key behavior on xterm is a modifier to send eight bit input
+! characters so that user can insert æ by pressing Alt+f inside xterm.  This
+! behavior is different from terminal emulators such as gnome-terminal and
+! konsole, which uses Alt as modifier to sends ^[ (escape} character.  If you want
+! Alt key on xterm to behave as on other terminal emulators, i.e. sends ^[ instead
+! of acts as eight bit modifier, you will need to put one of the following line in
+! your resource file.
+XTerm*metaSendsEscape: true
+XTerm*eightBitInput: false
+
+! Fix the backspace key On Arch Linux, xterm sends ^H key when backspace is
+! pressed. This breaks Ctrl+H key combination on Emacs. The workaround is making
+! xterm sends ^? when backspace is pressed, by adding the following lines to X
+! resource file.
+XTerm*backarrowKey: false
+XTerm*ttyModes: erase ^?
 
 ! ! Enable copying from tmux
-! xterm*disallowedWindowOps: 20,21,SetXprop
+! XTerm*disallowedWindowOps: 20,21,SetXprop
 
 ! Copy selections to Clipboard instead of to Primary
-xterm*selectToClipboard: true
+XTerm*selectToClipboard: true
 
-xterm*metaSendsEscape: true
+XTerm*metaSendsEscape: true
+
+! uxterm settings ---------------------------------------------------------------
+! These are the exact same as the above XTerm* settings other than that
+! XTerm is replaced with UXTerm.
+
+UXTerm*termName: xterm-256color
+UXTerm*VT100.geometry: 80x32
+
+UXTerm*saveLines:        500
+! UXTerm*scrollBar:        true
+UXTerm*scrollBar:        false
+UXTerm*cursorColor:      white
+UXTerm*pointerColor:     white
+UXTerm*c132:             true
+UXTerm*loginShell:       false
+! UXTerm*loginshell: true
+UXTerm*Foreground:       white
+UXTerm*Background:       black
+! UXTerm*Foreground:       black
+! UXTerm*Background:       white
+
+! UXTerm*faceName: DejaVu Sans Mono
+! UXTerm*faceName: Inconsolata
+! UXTerm*faceName: Inconsolata\\-dz:style=dz
+! UXTerm*faceName: Inconsolata\\-g:style=g
+! UXTerm*faceName: Inconsolata\\-dz for Powerline
+! UXTerm*faceName: Source Code Pro for Powerline
+UXTerm*faceName: Envy Code R
+UXTerm*faceSize: 13
+UXTerm.italicFont: xft:Envy Code R:italic:autohint=true
+! UXTerm*fontMenu*fontdefault*Label: Default
+UXTerm*xftAntialias: true
+UXTerm*cjkWidth: false
+
+UXTerm*locale: true
+UXTerm.utf8: true
+UXTerm*utf8Title: true
+
+UXTerm*bellIsUrgent: true
+UXTerm*borderWidth: false
+
+! The default Alt key behavior on xterm is a modifier to send eight bit input
+! characters so that user can insert æ by pressing Alt+f inside xterm.  This
+! behavior is different from terminal emulators such as gnome-terminal and
+! konsole, which uses Alt as modifier to sends ^[ (escape} character.  If you want
+! Alt key on xterm to behave as on other terminal emulators, i.e. sends ^[ instead
+! of acts as eight bit modifier, you will need to put one of the following line in
+! your resource file.
+UXTerm*metaSendsEscape: true
+UXTerm*eightBitInput: false
+
+! Fix the backspace key On Arch Linux, xterm sends ^H key when backspace is
+! pressed. This breaks Ctrl+H key combination on Emacs. The workaround is making
+! xterm sends ^? when backspace is pressed, by adding the following lines to X
+! resource file.
+UXTerm*backarrowKey: false
+UXTerm*ttyModes: erase ^?
+
+! ! Enable copying from tmux
+! UXTerm*disallowedWindowOps: 20,21,SetXprop
+
+! Copy selections to Clipboard instead of to Primary
+UXTerm*selectToClipboard: true
+
+UXTerm*metaSendsEscape: true
 
 ! emacs settings ---------------------------------------------------------------
 
