@@ -33,9 +33,14 @@ XTerm*Background:       black
 ! XTerm*faceName: Inconsolata\\-g:style=g
 ! XTerm*faceName: Inconsolata\\-dz for Powerline
 ! XTerm*faceName: Source Code Pro for Powerline
-XTerm*faceName: Envy Code R
+
+! XTerm*faceName: Envy Code R
+! XTerm.italicFont: xft:Envy Code R:italic:autohint=true
+
+XTerm*faceName: Iosevka
+XTerm.italicFont: xft:Iosevka:italic:autohint=true
+
 XTerm*faceSize: 13
-xterm.italicFont: xft:Envy Code R:italic:autohint=true
 ! XTerm*fontMenu*fontdefault*Label: Default
 XTerm*xftAntialias: true
 XTerm*cjkWidth: false
@@ -98,9 +103,14 @@ UXTerm*Background:       black
 ! UXTerm*faceName: Inconsolata\\-g:style=g
 ! UXTerm*faceName: Inconsolata\\-dz for Powerline
 ! UXTerm*faceName: Source Code Pro for Powerline
-UXTerm*faceName: Envy Code R
+
+! UXTerm*faceName: Envy Code R
+! UXTerm.italicFont: xft:Envy Code R:italic:autohint=true
+
+UXTerm*faceName: Iosevka
+UXTerm.italicFont: xft:Iosevka:italic:autohint=true
+
 UXTerm*faceSize: 13
-UXTerm.italicFont: xft:Envy Code R:italic:autohint=true
 ! UXTerm*fontMenu*fontdefault*Label: Default
 UXTerm*xftAntialias: true
 UXTerm*cjkWidth: false
