@@ -1,0 +1,3 @@
+[submodule "emacs/dot-emacs.d"]
+	path = emacs/dot-emacs.d
+	url = https://kaushalmodi@github.com/kaushalmodi/.emacs.d
