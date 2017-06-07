@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+"""Custom functions for Ipython"""
+
+import math
+import convert # in $SCRIPTS/python
+
+def log10(num):
+    "Return log10 of NUM."
+    return math.log10(num)
+
+def b2d(binary_str):
+    "Convert BINARY_STR from Binary to Decimal."
+    return convert.b2d(binary_str)
+
+def h2d(hex_str):
+    "Convert HEX_STR from Hex to Decimal."
+    return convert.h2d(hex_str)
+
+def d2h(decimal):
+    "Convert DECIMAL from Decimal to Hex."
+    return convert.d2h(decimal)
+
+def d2b(decimal):
+    "Convert DECIMAL from Decimal to Binary."
+    return convert.d2b(decimal)
+
+def h2b(hex_str):
+    "Convert HEX_STR from Hex to Binary."
+    return convert.h2b(hex_str)
+
+def b2h(binary_str):
+    "Convert BINARY_STR from Binary to Hex."
+    return convert.b2h(binary_str)
+
+def dbp(num):
+    "Power dB conversions. Return 10*log10(NUM). Returns value in dB."
+    return 10*math.log10(num)
+
+def dbv(num):
+    "Voltage dB conversions. Return 20*log10(NUM). Returns value in dB."
+    return 20*math.log10(num)
+
+def dbinvp(num):
+    "Power dB conversions. Return 10^(NUM/10). Converts from dB to real number."
+    return 10**(num*1.0/10)
+
+def dbinv(num):
+    "Voltage dB conversions. Return 10^(NUM/20). Converts from dB to real number."
+    return 10**(num*1.0/20)
+
+# ipython config and profiles are stored in ~/.ipython
+# ~/.ipython/profile_default/startup/00_init_modules.py contains the code to run
+# at ipython startup
