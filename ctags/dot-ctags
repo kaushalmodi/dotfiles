@@ -65,7 +65,7 @@
 --exclude=*INCA_libs/*
 --exclude=layout
 
---extra=+q
+--extras=+q
 
 # Hide the warning: ctags: Warning: xcmd recognizes
 # /home/kmodi/usr_local2/libexec/ctags/drivers/coffeetags is not available
