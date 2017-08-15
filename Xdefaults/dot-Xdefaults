@@ -50,7 +50,7 @@ xterm.utf8: true
 XTerm*utf8Title: true
 
 XTerm*bellIsUrgent: true
-XTerm*borderWidth: false
+XTerm*borderWidth: 0
 
 ! The default Alt key behavior on xterm is a modifier to send eight bit input
 ! characters so that user can insert æ by pressing Alt+f inside xterm.  This
@@ -120,7 +120,7 @@ UXTerm.utf8: true
 UXTerm*utf8Title: true
 
 UXTerm*bellIsUrgent: true
-UXTerm*borderWidth: false
+UXTerm*borderWidth: 0
 
 ! The default Alt key behavior on xterm is a modifier to send eight bit input
 ! characters so that user can insert æ by pressing Alt+f inside xterm.  This
