@@ -27,6 +27,42 @@ XTerm*Background:       black
 ! XTerm*Foreground:       black
 ! XTerm*Background:       white
 
+! A better blue for black background
+! https://unix.stackexchange.com/a/13301/57923
+! https://wiki.archlinux.org/index.php/Xterm#Colors
+! 0 - black
+! XTerm.VT100.color0:
+! 1 - red3
+! XTerm.VT100.color1:
+! 2 - green3
+! XTerm.VT100.color2:
+! 3 - yellow3
+XTerm.VT100.color3: rgb:f3/dc/55
+! 4 - blue2
+XTerm.VT100.color4: cornflowerblue
+! 5 - magenta3
+! XTerm.VT100.color5:
+! 6 - cyan3
+! XTerm.VT100.color6:
+! 7 - gray90
+! XTerm.VT100.color7:
+! 8 - gray50
+! XTerm.VT100.color8:
+! 9 - red
+! XTerm.VT100.color9:
+! 10 - green
+! XTerm.VT100.color10:
+! 11 - yellow
+! XTerm.VT100.color11:
+! 12 - rgb:5c/5c/ff
+! XTerm.VT100.color12:
+! 13 - magenta
+! XTerm.VT100.color13:
+! 14 - cyan
+! XTerm.VT100.color14:
+! 15 - white
+! XTerm.VT100.color15:
+
 ! XTerm*faceName: DejaVu Sans Mono
 ! XTerm*faceName: Inconsolata
 ! XTerm*faceName: Inconsolata\\-dz:style=dz
@@ -96,6 +132,38 @@ UXTerm*Foreground:       white
 UXTerm*Background:       black
 ! UXTerm*Foreground:       black
 ! UXTerm*Background:       white
+! 0 - black
+! UXTerm.VT100.color0:
+! 1 - red3
+! UXTerm.VT100.color1:
+! 2 - green3
+! UXTerm.VT100.color2:
+! 3 - yellow3
+UXTerm.VT100.color3: rgb:f3/dc/55
+! 4 - blue2
+UXTerm.VT100.color4: cornflowerblue
+! 5 - magenta3
+! UXTerm.VT100.color5:
+! 6 - cyan3
+! UXTerm.VT100.color6:
+! 7 - gray90
+! UXTerm.VT100.color7:
+! 8 - gray50
+! UXTerm.VT100.color8:
+! 9 - red
+! UXTerm.VT100.color9:
+! 10 - green
+! UXTerm.VT100.color10:
+! 11 - yellow
+! UXTerm.VT100.color11:
+! 12 - rgb:5c/5c/ff
+! UXTerm.VT100.color12:
+! 13 - magenta
+! UXTerm.VT100.color13:
+! 14 - cyan
+! UXTerm.VT100.color14:
+! 15 - white
+! UXTerm.VT100.color15:
 
 ! UXTerm*faceName: DejaVu Sans Mono
 ! UXTerm*faceName: Inconsolata
