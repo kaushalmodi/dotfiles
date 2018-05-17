@@ -1,0 +1,13 @@
+[tmux]
+  # These env vars have to be set prior to running nbuild, and they have to
+  # point to actual directories.
+  dir_env_vars = ["STOW_PKGS_TARGET"]
+  [tmux.set_env_vars]
+    CFLAGS = "-fgnu89-inline -I${STOW_PKGS_TARGET}/include -I${STOW_PKGS_TARGET}/include/ncursesw"
+    LDFLAGS = "-L${STOW_PKGS_TARGET}/lib"
+
+[ncdu]
+  dir_env_vars = ["STOW_PKGS_TARGET"]
+  [ncdu.set_env_vars]
+    CFLAGS = "-I${STOW_PKGS_TARGET}/include/ncursesw"
+    LDFLAGS = "-L${STOW_PKGS_TARGET}/lib"
