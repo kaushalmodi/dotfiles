@@ -46,6 +46,7 @@
 --exclude=myLibs
 --exclude=results
 --exclude=dig_impl
+--exclude=dig_impl_16p13
 --exclude=dig_impl_synopsys
 --exclude=*digital/design_code/str/*
 --exclude=*digital/design_code/spyglass/*
@@ -53,7 +54,6 @@
 --exclude=*digital/ip/mbist/Design/*
 --exclude=*.log
 --exclude=notagscan
-# htags generated HTML files
 --exclude=HTML
 --exclude=html
 --exclude=arm-none-eabi
@@ -62,11 +62,59 @@
 --exclude=openpyxl
 --exclude=gnuarm-4.0.2
 --exclude=*cad.pvinit/*
+--exclude=*cadenceLibs/*/schematic/*
+--exclude=*cadenceLibs/*/layout/*
+--exclude=*cadenceLibs/*/symbol/*
+--exclude=*raquino2/*
+--exclude=*kmodi/adice5/*
+--exclude=*kmodi/*sandbox*
 --exclude=*INCA_libs/*
+--exclude=*kmodi/tests/*
+--exclude=*kmodi/simulation/*
+--exclude=*kmodi/kmodi_virtuoso_sandbox.X/*
+--exclude=*kmodi/adice_sandbox.X/*
 --exclude=layout
+--exclude=*rxqec/tests/system_tests/*
+--exclude=*rxqec/svtb/rxqec_rx_dp_tasks.sv
+--exclude=*ip/ts1n*/*
+--exclude=*ip/cap_ram/*
+--exclude=*ip/TSMC*/*
+--exclude=*ip/eFuse*/*
+--exclude=*ip/dpd*/*
+--exclude=*ip/ARM_IP_CM4/*
+--exclude=*ip/tx_attn_sram/*
+--exclude=*mbist/mod/*
+--exclude=unmanaged
+--exclude=*.vg
+# ad9555
+--exclude=*cadenceLibs/*
+--exclude=cad.paths
+--exclude=*tb/models/model_validation/*
+--exclude=dig_impl_cadence
+--exclude=norelease
+--exclude=retired
+--exclude=*digital/tb/str/*
+--exclude=*digital/tb/env/c_api/*_wrapper_imports.sv
+# ad9545b
+--exclude=*digital/impl_current/*
+--exclude=*digital/impl/*
+# palau
+--exclude=*systemc_model/libs/*
+--exclude=.methodics
+--exclude=adflow
+--exclude=adv_cadenceLibs
+--exclude=adv_ip
+--exclude=analog
+--exclude=branches
+--exclude=cadencelibs
+--exclude=cadencelibs_expctl
+--exclude=documents
+--exclude=documents_expctl
+--exclude=subProjects
+--exclude=tapeout_expctl
+--exclude=workareas
 
 --extras=+q
-
 # Hide the warning: ctags: Warning: xcmd recognizes
 # /home/kmodi/usr_local2/libexec/ctags/drivers/coffeetags is not available
 # https://github.com/fishman/ctags/issues/131#issuecomment-69467247
