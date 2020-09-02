@@ -104,8 +104,6 @@ XTerm*ttyModes: erase ^?
 ! Copy selections to Clipboard instead of to Primary
 XTerm*selectToClipboard: true
 
-XTerm*metaSendsEscape: true
-
 ! uxterm settings ---------------------------------------------------------------
 ! These are the exact same as the above XTerm* settings other than that
 ! XTerm is replaced with UXTerm.
@@ -203,17 +201,18 @@ UXTerm*ttyModes: erase ^?
 ! Copy selections to Clipboard instead of to Primary
 UXTerm*selectToClipboard: true
 
-UXTerm*metaSendsEscape: true
+! Mon Jan 20 13:42:57 EST 2020 - kmodi
+! Commenting out the emacs Xdefaults config as the setting of font to Iosevka is not working.
+! ! emacs settings ---------------------------------------------------------------
+! ! https://www.gnu.org/software/emacs/manual/html_node/emacs/Fonts.html
+! ! emacs.font: Envy Code R
+! ! emacs.font: Monoid
+! ! emacs.font: PragmataPro
+! emacs.font: Iosevka
+! emacs*geometry: 80x32
 
-! emacs settings ---------------------------------------------------------------
-
-! emacs*font: Envy Code R
-emacs*font: PragmataPro
-! emacs*font: Monoid
-emacs*geometry: 80x32
-
-emacs.toolBar: false
-emacs.verticalScrollBars: false
+! emacs.toolBar: false
+! emacs.verticalScrollBars: false
 
 ! Xft settings ---------------------------------------------------------------
 
