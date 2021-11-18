@@ -1,0 +1,90 @@
+# -*- mode: conf-unix -*-
+# git aliases
+
+[pretty]
+	# git config --global pretty.logfmt1 'format:%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    logfmt1 = format:%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+
+[alias]
+    # foo = "!f() { ; }; f"
+
+    # Save aliases to ~/.gitconfig-aliases
+    # https://stackoverflow.com/a/23928098/1219634
+    alias-set = "!f() { al=${1}; shift 1; git config --file ~/.gitconfig-aliases alias.${al} \"$*\"; }; f"
+
+    # https://stackoverflow.com/q/7066325/1219634
+    # Help on tput command: https://stackoverflow.com/a/20983251/1219634
+    # I know that 'git help <alias name>' would also work to show the definition of
+    # a single alias. But 'git alias' will show all the defined aliases.
+    # aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias.// -e s/\\ /\\ $(printf \"\\043\")--\\>\\ / | column -t -s $(printf \"\\043\")
+    alias-get = "!f() { git config --get-regexp \"^alias\\.${1}\" \
+                        | sed -r \"s|^\\s*alias\\.([^ ]+)|\\1 #= |\" \
+                        | column -t -s# \
+                        | sed -r \"s|^([^=]+)=|$(tput setaf 3)\\1$(tput sgr0)$(tput setaf 0)$(tput bold)=$(tput sgr0)|\"; }; f"
+
+    # https://github.com/brauliobo/gitconfig/blob/master/configs/.gitconfig
+    # https://stackoverflow.com/a/11768843/1219634
+    # git change-commits GIT_COMMITTER_NAME "old name" "new name"
+    # Change commit for the last 10 commits:
+    # git change-commits GIT_AUTHOR_EMAIL "old@email.com" "new@email.com" HEAD~10..HEAD
+    # git change-commits GIT_AUTHOR_EMAIL "kaushal.modi@gmail.com" "kaushal.modi@analog.com"
+    # git change-commits GIT_COMMITTER_EMAIL "kaushal.modi@gmail.com" "kaushal.modi@analog.com" -f
+    change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
+
+    # config user
+    work     = "!f() { git config user.name \"Kaushal Modi\"; git config user.email \"Kaushal.Modi@analog.com\"; }; f"
+    personal = "!f() { git config user.name \"Kaushal Modi\"; git config user.email \"kaushal.modi@gmail.com\"; }; f"
+
+    # helper aliases
+	default-branch = "!f() { git remote show origin 2>/dev/null | sed -n \"/HEAD branch/s/.*: //p\" ; }; f"
+	current-branch = !git rev-parse --abbrev-ref HEAD
+    root = rev-parse --show-toplevel
+    # Mask these warnings on fetch:
+    # Warning: No xauth data; using fake authentication data for X11 forwarding.
+    # X11 forwarding request failed on channel 0
+    fet = !git fetch "$*" 2>/dev/null
+
+    # status
+    st = status --short --branch
+
+    # log
+    lg1 = "!f() { arg=${1:--1}; git log --abbrev-commit --pretty=logfmt1 ${arg} ${@:2}; }; f"
+    head = lg1
+    lg = "!f() { arg=${1:--10}; git lg1 --graph ${arg} ${@:2}; }; f"
+    # Show commits from all refs except from refs/stacks/ (internal refs created by Stacked Git)
+    lga = "!f() { arg=${1:--10}; git lg --exclude=refs/stacks/* --all ${arg} ${@:2}; }; f"
+	# https://stackoverflow.com/a/7509303/1219634
+    lgs = "lg --simplify-by-decoration"
+
+    # checkout and switch
+    # create the specified branch if it doesn't exist and switch to it.
+    # first, a git fetch is done so that it helps check out a local version of a remote branch quickly.
+    co = "!f() { git fet; git checkout ${1} 1>/dev/null || (echo -n \"Creating branch ${1} .. \" && git switch -c ${1}); git sup; }; f"
+
+    # submodule
+    sup = "submodule update --init"
+    latest-libs = "!f() { git -c submodule.libs/jrx.update=none -c submodule.libs/jtx.update=none submodule update --remote; }; f"
+
+    # remote
+    sync = "!f() { br=${1:-$(git default-branch)}; git checkout ${br} && git pull origin ${br} && git sup && git head; }; f"
+	pushc = "!f() { arg=${1:--u origin $(git current-branch)}; git push ${arg} ${@:2}; }; f"
+
+    # cleanup and prune
+    prune-branches = "!f() { co_branch=${1:-$(git default-branch)}; git fet --prune; git co ${co_branch} && git branch --merged | grep -v \"\\*\" | xargs --no-run-if-empty -n 1 git branch -d; }; f"
+
+    # reset
+    # https://github.com/brauliobo/gitconfig/blob/8d291fa556dc6d8f7913f2f0c6cd951df9aae4e4/configs/.gitconfig#L81
+    unstage = reset HEAD
+	# First run 'git reflog' to find the HEAD@{N} commit you want to reset to.
+    # Then run 'git recycle N' or 'git recycle N --hard' to do a soft or hard reset.
+    recycle = "!f() { git reset --soft HEAD@{${1}} ${@:2}; }; f"
+    undo = "!f() { echo \"Was on:\" && git head && git reset HEAD~${1:-1} && echo \"Now on:\" && git head; }; f"
+    redo = "!f() { echo \"Was on:\" && git head && git recycle ${1:-1} && echo \"Now on:\" && git head; }; f"
+
+    # stash
+	# https://jwiegley.github.io/git-from-the-bottom-up/4-Stashing-and-the-reflog.html
+    snapshot = "!f() { git stash && git stash apply; }; f"
+
+    # miscellaneous
+	# https://davidwalsh.name/awesome-git-aliases
+    dad = !curl https://icanhazdadjoke.com/ && echo
