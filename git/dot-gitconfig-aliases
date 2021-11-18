@@ -2,7 +2,7 @@
 # git aliases
 
 [pretty]
-	# git config --global pretty.logfmt1 'format:%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    # git config --global pretty.logfmt1 'format:%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     logfmt1 = format:%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
 
 [alias]
@@ -36,8 +36,8 @@
     personal = "!f() { git config user.name \"Kaushal Modi\"; git config user.email \"kaushal.modi@gmail.com\"; }; f"
 
     # helper aliases
-	default-branch = "!f() { git remote show origin 2>/dev/null | sed -n \"/HEAD branch/s/.*: //p\" ; }; f"
-	current-branch = !git rev-parse --abbrev-ref HEAD
+    default-branch = "!f() { git remote show origin 2>/dev/null | sed -n \"/HEAD branch/s/.*: //p\" ; }; f"
+    current-branch = !git rev-parse --abbrev-ref HEAD
     root = rev-parse --show-toplevel
     # Mask these warnings on fetch:
     # Warning: No xauth data; using fake authentication data for X11 forwarding.
@@ -53,7 +53,7 @@
     lg = "!f() { arg=${1:--10}; git lg1 --graph ${arg} ${@:2}; }; f"
     # Show commits from all refs except from refs/stacks/ (internal refs created by Stacked Git)
     lga = "!f() { arg=${1:--10}; git lg --exclude=refs/stacks/* --all ${arg} ${@:2}; }; f"
-	# https://stackoverflow.com/a/7509303/1219634
+    # https://stackoverflow.com/a/7509303/1219634
     lgs = "lg --simplify-by-decoration"
 
     # checkout and switch
@@ -67,7 +67,7 @@
 
     # remote
     sync = "!f() { br=${1:-$(git default-branch)}; git checkout ${br} && git pull origin ${br} && git sup && git head; }; f"
-	pushc = "!f() { arg=${1:--u origin $(git current-branch)}; git push ${arg} ${@:2}; }; f"
+    pushc = "!f() { arg=${1:--u origin $(git current-branch)}; git push ${arg} ${@:2}; }; f"
 
     # cleanup and prune
     prune-branches = "!f() { co_branch=${1:-$(git default-branch)}; git fet --prune; git co ${co_branch} && git branch --merged | grep -v \"\\*\" | xargs --no-run-if-empty -n 1 git branch -d; }; f"
@@ -75,16 +75,16 @@
     # reset
     # https://github.com/brauliobo/gitconfig/blob/8d291fa556dc6d8f7913f2f0c6cd951df9aae4e4/configs/.gitconfig#L81
     unstage = reset HEAD
-	# First run 'git reflog' to find the HEAD@{N} commit you want to reset to.
+    # First run 'git reflog' to find the HEAD@{N} commit you want to reset to.
     # Then run 'git recycle N' or 'git recycle N --hard' to do a soft or hard reset.
     recycle = "!f() { git reset --soft HEAD@{${1}} ${@:2}; }; f"
     undo = "!f() { echo \"Was on:\" && git head && git reset HEAD~${1:-1} && echo \"Now on:\" && git head; }; f"
     redo = "!f() { echo \"Was on:\" && git head && git recycle ${1:-1} && echo \"Now on:\" && git head; }; f"
 
     # stash
-	# https://jwiegley.github.io/git-from-the-bottom-up/4-Stashing-and-the-reflog.html
+    # https://jwiegley.github.io/git-from-the-bottom-up/4-Stashing-and-the-reflog.html
     snapshot = "!f() { git stash && git stash apply; }; f"
 
     # miscellaneous
-	# https://davidwalsh.name/awesome-git-aliases
+    # https://davidwalsh.name/awesome-git-aliases
     dad = !curl https://icanhazdadjoke.com/ && echo
