@@ -129,7 +129,7 @@
   ;; :go/next-journal                          "g n"
   ;; :go/prev-journal                          "g p"
   ;; :go/keyboard-shortcuts                    "g s"
-  :ui/open-new-window                       disable ;;"mod+n"
+  :ui/open-new-window                       false ;;"mod+n"
 
   ;; Block editing general
   ;; :editor/backspace                         "backspace"
