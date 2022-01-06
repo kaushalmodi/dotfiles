@@ -135,8 +135,8 @@
   ;; :editor/backspace                         "backspace"
   ;; :editor/delete                            "delete"
 
-  :editor/indent                            ["alt+right" "tab"] ;;"tab"
-  :editor/outdent                           ["alt+left" "shift+tab"] ;;"shift+tab"
+  :editor/indent                            "alt+right" ;;"tab"
+  :editor/outdent                           "alt+left" ;;"shift+tab"
 
   :editor/new-block                         "alt+enter" ;;"enter"
   ;; :editor/new-line                          "shift+enter"
