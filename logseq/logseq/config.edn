@@ -177,7 +177,7 @@
 
   ;; Formatting
   :editor/bold                              false ;;"mod+b"
-  :editor/insert-link                       "mod+c mod+i" ;;"mod+l"
+  :editor/insert-link                       "mod+c mod+l" ;;"mod+l"
   ;; :editor/italics                           "mod+i"
   ;; :editor/highlight                         "mod+shift+h"
 
