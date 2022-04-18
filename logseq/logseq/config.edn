@@ -171,8 +171,8 @@
   ;; Block selection
   ;; :editor/open-edit                         "enter"
   ;; :editor/select-all-blocks                 "mod+shift+a"
-  :editor/select-block-up                   "alt+up" ;;"shift+up"
-  :editor/select-block-down                 "alt+down" ;;"shift+down"
+  ;; :editor/select-block-up                   "shift+up"
+  ;; :editor/select-block-down                 "shift+down"
   ;; :editor/delete-selection                  ["backspace" "delete"]
 
   ;; Formatting
