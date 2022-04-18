@@ -146,8 +146,8 @@
   :editor/follow-link                       "mod+c mod+o" ;;"mod+o"
   ;; :editor/open-link-in-sidebar              "mod+shift+o"
 
-  ;; :editor/move-block-up                     "alt+shift+up"
-  ;; :editor/move-block-down                   "alt+shift+down"
+  :editor/move-block-up                     "alt+up" ;;"alt+shift+up"
+  :editor/move-block-down                   "alt+down" ;;"alt+shift+down"
 
   :editor/escape-editing                    "mod+g" ;;false
 
