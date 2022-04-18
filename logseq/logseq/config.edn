@@ -141,7 +141,7 @@
   :editor/new-block                         "alt+enter" ;;"enter"
   ;; :editor/new-line                          "shift+enter"
 
-  ;; :editor/cycle-todo                        "mod+enter"
+  :editor/cycle-todo                        "mod+c mod+t" ;;"mod+enter"
 
   :editor/follow-link                       "mod+c mod+o" ;;"mod+o"
   ;; :editor/open-link-in-sidebar              "mod+shift+o"
