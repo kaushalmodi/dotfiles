@@ -96,7 +96,7 @@
  {
   ;; Basics
   :go/search                                "mod+s" ;;"mod+k"
-  :go/search-in-page                        "shift+mod+s" ;;"mod+shift+k"
+  :go/search-in-page                        "mod+shift+s" ;;"mod+shift+k"
 
   :editor/undo                              ["mod+/" "mod+z"] ;;"mod+z"
   :editor/redo                              "shift+mod+/" ;;["shift+mod+z" "mod+y"]
@@ -105,8 +105,8 @@
   :misc/copy                                "alt+w" ;;"mod+c"
 
   ;; Navigation
-  :editor/up                                ["mod+p" "up"] ;;"up"
-  :editor/down                              ["mod+n" "down"] ;;"down"
+  ;; :editor/up                                ["up" "ctrl+p"]
+  ;; :editor/down                              ["down" "mod+n"]
   :editor/left                              ["mod+b" "left"] ;;"left"
   :editor/right                             ["mod+f" "right"] ;;"right"
 
@@ -134,6 +134,7 @@
   ;; Block editing general
   ;; :editor/backspace                         "backspace"
   ;; :editor/delete                            "delete"
+  ;; :editor/delete-selection                  ["backspace" "delete"]
 
   :editor/indent                            "alt+right" ;;"tab"
   :editor/outdent                           "alt+left" ;;"shift+tab"
@@ -145,9 +146,6 @@
 
   :editor/follow-link                       "mod+c mod+o" ;;"mod+o"
   ;; :editor/open-link-in-sidebar              "mod+shift+o"
-
-  :editor/move-block-up                     "alt+up" ;;"alt+shift+up"
-  :editor/move-block-down                   "alt+down" ;;"alt+shift+down"
 
   :editor/escape-editing                    "mod+g" ;;false
 
@@ -169,29 +167,32 @@
   ;; :editor/paste-text-in-one-block-at-point  "mod+shift+v"
 
   ;; Block selection
+  :editor/move-block-up                     "alt+up" ;;"alt+shift+up"
+  :editor/move-block-down                   "alt+down" ;;"alt+shift+down"
+
   ;; :editor/open-edit                         "enter"
   ;; :editor/select-all-blocks                 "mod+shift+a"
   ;; :editor/select-block-up                   "shift+up"
   ;; :editor/select-block-down                 "shift+down"
-  ;; :editor/delete-selection                  ["backspace" "delete"]
 
   ;; Formatting
   :editor/bold                              false ;;"mod+b"
   :editor/insert-link                       "mod+c mod+l" ;;"mod+l"
   ;; :editor/italics                           "mod+i"
   ;; :editor/highlight                         "mod+shift+h"
+  ;; :editor/strike-through                    "mod+shift+s"
 
   ;; Toggle
-  ;; :ui/toggle-help                           "shift+/"
-  ;; :ui/toggle-wide-mode                      "t w"
-  ;; :ui/toggle-cards                          "t c"
-  ;; :ui/toggle-document-mode                  "t d"
   ;; :ui/toggle-brackets                       "mod+c mod+b"
-  ;; :ui/toggle-theme                          "t t"
+  ;; :ui/toggle-cards                          "t c"
+  ;; :ui/toggle-contents                       "alt+shift+c"
+  ;; :ui/toggle-document-mode                  "t d"
+  ;; :ui/toggle-help                           "shift+/"
   ;; :ui/toggle-left-sidebar                   "t l"
   ;; :ui/toggle-right-sidebar                  "t r"
   ;; :ui/toggle-settings                       ["t s" "mod+,"]
-  ;; :ui/toggle-contents                       "mod+shift+c"
+  ;; :ui/toggle-theme                          "t t"
+  ;; :ui/toggle-wide-mode                      "t w"
 
   ;; Others
   ;; :pdf/previous-page                        "alt+p"
@@ -208,27 +209,28 @@
 
   ;; :editor/insert-youtube-timestamp          "mod+shift+y"
 
-  :auto-complete/prev                       ["mod+p" "up"] ;;"up"
-  :auto-complete/next                       ["mod+n" "down"] ;;"down"
   ;; :auto-complete/complete                   "enter"
+  ;; :auto-complete/next                       ["down" "ctrl+n"]
+  ;; :auto-complete/prev                       ["up" "ctrl+p"]
   ;; :auto-complete/shift-complete             "shift+enter"
 
-  ;; :date-picker/prev-day                     "left"
-  ;; :date-picker/next-day                     "right"
   ;; :date-picker/prev-week                    "up"
   ;; :date-picker/next-week                    "down"
   ;; :date-picker/complete                     "enter"
+  ;; :date-picker/next-day                     "right"
+  ;; :date-picker/prev-day                     "left"
 
 
   ;; :ui/select-theme-color                    "t i"
   ;; :editor/open-file-in-default-app          false
   ;; :editor/open-file-in-directory            false
-  ;; :editor/strike-through                    "mod+shift+s"
+
   ;; :cards/forgotten                          "f"
   ;; :cards/next-card                          "n"
   ;; :cards/recall                             "t"
   ;; :cards/remembered                         "r"
   ;; :cards/toggle-answers                     "s"
+
   ;; :command-palette/toggle                   "mod+shift+p"
   ;; :command/toggle-favorite                  "mod+shift+f"
   ;; :git/commit                               "c"
