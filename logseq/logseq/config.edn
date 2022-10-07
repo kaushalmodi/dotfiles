@@ -146,8 +146,8 @@
   :editor/indent                            "alt+right" ;;"tab"
   :editor/outdent                           "alt+left" ;;"shift+tab"
 
-  ;; :editor/new-line                          "shift+enter"
   :editor/new-block                         ["mod+enter" "alt+enter"] ;;"enter"
+  :editor/new-line                          "enter" ;;"shift+enter"
 
   :editor/cycle-todo                        "mod+c mod+t" ;;"mod+enter"
 
