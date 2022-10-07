@@ -101,6 +101,9 @@
   :editor/undo                              ["mod+/" "mod+z"] ;;"mod+z"
   :editor/redo                              "shift+mod+/" ;;["shift+mod+z" "mod+y"]
   :editor/copy                              "alt+w" ;;"mod+c"
+  ;; :editor/copy-current-file                 false
+  :editor/copy-embed                        "alt+shift+e" ;;"mod+e"
+  :editor/copy-text                         "alt+shift+w" ;;"mod+shift+c"
   :misc/copy                                "alt+w" ;;"mod+c"
   :editor/cut                               ["mod+x" "mod+w"] ;;"mod+x"
 
@@ -129,6 +132,10 @@
   ;; :go/next-journal                          "g n"
   ;; :go/prev-journal                          "g p"
   ;; :go/keyboard-shortcuts                    "g s"
+  ;; :go/all-graphs                           "g shift+g"
+  :go/electron-find-in-page                 "alt+shift+f" ;;"mod+f"
+  ;; :go/electron-jump-to-the-next            ["enter" "mod+g"]
+  ;; :go/electron-jump-to-the-previous        ["shift+enter" "mod+shift+g"]
   :ui/open-new-window                       false ;;"mod+n"
 
   ;; Block editing general
@@ -166,14 +173,17 @@
   ;; :editor/replace-block-reference-at-point  "mod+shift+r"
   ;; :editor/paste-text-in-one-block-at-point  "mod+shift+v"
 
-  ;; Block selection
   :editor/move-block-up                     "alt+up" ;;"alt+shift+up"
   :editor/move-block-down                   "alt+down" ;;"alt+shift+down"
 
+  ;; Block and selection
   ;; :editor/open-edit                         "enter"
+
+  :editor/select-block-up                   "shift+up" ;;"alt+up"
+  :editor/select-block-down                 "shift+down" ;;"alt+down"
   ;; :editor/select-all-blocks                 "mod+shift+a"
-  ;; :editor/select-block-up                   "shift+up"
-  ;; :editor/select-block-down                 "shift+down"
+  :editor/select-up                         "mod+shift+up" ;;"shift+up"
+  :editor/select-down                       "mod+shift+down" ;;"shift+down"
 
   ;; Formatting
   :editor/bold                              false ;;"mod+b"
@@ -211,19 +221,20 @@
 
   ;; :auto-complete/complete                   "enter"
   ;; :auto-complete/next                       ["down" "ctrl+n"]
+  :auto-complete/open-link                  "mod+c mod+o" ;;"mod+o"
   ;; :auto-complete/prev                       ["up" "ctrl+p"]
   ;; :auto-complete/shift-complete             "shift+enter"
 
-  ;; :date-picker/prev-week                    "up"
-  ;; :date-picker/next-week                    "down"
   ;; :date-picker/complete                     "enter"
   ;; :date-picker/next-day                     "right"
+  ;; :date-picker/next-week                    ["down" "ctrl+n"]
   ;; :date-picker/prev-day                     "left"
+  ;; :date-picker/prev-week                    ["up" "ctrl+p"]
 
 
   ;; :ui/select-theme-color                    "t i"
-  ;; :editor/open-file-in-default-app          false
-  ;; :editor/open-file-in-directory            false
+  ;; :editor/open-file-in-default-app          "mod+d mod+a"
+  ;; :editor/open-file-in-directory            "mod+d mod+i"
 
   ;; :cards/forgotten                          "f"
   ;; :cards/next-card                          "n"
