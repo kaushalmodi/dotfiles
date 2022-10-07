@@ -186,9 +186,9 @@
   :editor/select-down                       "mod+shift+down" ;;"shift+down"
 
   ;; Formatting
-  :editor/bold                              false ;;"mod+b"
+  :editor/bold                              "mod+shift+b" ;;"mod+b"
   :editor/insert-link                       "mod+c mod+l" ;;"mod+l"
-  ;; :editor/italics                           "mod+i"
+  :editor/italics                           ["mod+shift+i" "mod+i"] ;;"mod+i"
   ;; :editor/highlight                         "mod+shift+h"
   ;; :editor/strike-through                    "mod+shift+s"
 
