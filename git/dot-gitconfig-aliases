@@ -43,6 +43,7 @@
     # Warning: No xauth data; using fake authentication data for X11 forwarding.
     # X11 forwarding request failed on channel 0
     fet = !git fetch "$*" 2>/dev/null
+    feta = fet --all
 
     # status
     st = status --short --branch
@@ -70,6 +71,8 @@
     pushc = "!f() { arg=${1:--u origin $(git current-branch)}; git push ${arg} ${@:2}; }; f"
 
     # cleanup and prune
+    # Optimize .git; reduce size - http://stackoverflow.com/a/2116892/1219634
+    optimize = "!f() { git reflog expire --all --expire=now; git gc --prune=now --aggressive; }; f"
     prune-branches = "!f() { co_branch=${1:-$(git default-branch)}; git fet --prune; git co ${co_branch} && git branch --merged | grep -v \"\\*\" | xargs --no-run-if-empty -n 1 git branch -d; }; f"
 
     # reset
