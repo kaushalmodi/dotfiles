@@ -57,10 +57,12 @@
     # https://stackoverflow.com/a/7509303/1219634
     lgs = "lg --simplify-by-decoration"
 
-    # checkout and switch
+    # (C)heck(O)ut and switch
     # create the specified branch if it doesn't exist and switch to it.
     # first, a git fetch is done so that it helps check out a local version of a remote branch quickly.
-    co = "!f() { git fet; git checkout ${1} 1>/dev/null || (echo -n \"Creating branch ${1} .. \" && git switch -c ${1}); git sup; }; f"
+    co = "!f() { git fet; git checkout ${1} 1>/dev/null || (echo -n \"Creating branch ${1} .. \" && git switch -c ${1}); }; f"
+    # (C)heck(O)out, switch and do (S)ubmodule update.
+    cos = "!f() { git co ${1}; git sup; }; f"
 
     # submodule
     sup = "submodule update --init"
