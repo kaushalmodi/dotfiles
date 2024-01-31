@@ -69,7 +69,11 @@
     latest-libs = "!f() { git -c submodule.libs/jrx.update=none -c submodule.libs/jtx.update=none submodule update --remote; }; f"
 
     # remote
-    sync = "!f() { br=${1:-$(git default-branch)}; git checkout ${br} && git pull origin ${br} && git sup && git head; }; f"
+    # (SYNC) the default branch (if branch not specified) with origin.
+    sync = "!f() { br=${1:-$(git default-branch)}; git checkout ${br}; git pull origin ${br}; git head; }; f"
+    # (SYNC) the default branch (if branch not specified) with origin, and then do (S)ubmodule update.
+    syncs = "!f() { br=${1:-$(git default-branch)}; git sync ${br}; git sup; }; f"
+
     pushc = "!f() { arg=${1:--u origin $(git current-branch)}; git push ${arg} ${@:2}; }; f"
 
     # cleanup and prune
