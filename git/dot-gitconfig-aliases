@@ -72,6 +72,20 @@
     # Show submodule diffs in all git ops: status, diff, etc.
     showsub = "config --unset diff.ignoreSubmodules"
 
+    # diff
+    # Better (DIF)f
+    # Don't show whitespace and blank line changes. Also show change logs related to changes in submodule hash change.
+    dif = "diff --ignore-all-space --ignore-blank-lines --submodule=log"
+    # Better (SHO)w
+    # Shows what changed in the commit and also shows change logs related to changes in submodule hash change.
+    # Usage: git sho <hash>
+    sho = "show --ignore-all-space --ignore-blank-lines --submodule=log"
+
+    # Better (M)e(RG)e
+    # Merge while ignore all space changes
+    # Usage: git mrg <ref>
+    mrg = "merge -Xignore-space-change -Xignore-all-space -Xignore-space-at-eol -Xignore-cr-at-eol"
+
     # remote
     # (SYNC) the default branch (if branch not specified) with origin.
     sync = "!f() { br=${1:-$(git default-branch)}; git checkout ${br}; git pull origin ${br}; git head; }; f"
