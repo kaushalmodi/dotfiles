@@ -46,6 +46,7 @@
     feta = fet --all
     # Using --ignore-all-space is risky because also ignore a white-space change where it changed from 1 space to 0 spaces.
     default-diff-ws-switches = "!f() { echo '--ignore-space-change --ignore-space-at-eol --ignore-cr-at-eol --ignore-blank-lines'; }; f"
+    default-merge-ws-switches = "!f() { echo '-Xignore-space-change -Xignore-space-at-eol -Xignore-cr-at-eol'; }; f"
 
     # status
     st = status --short --branch
@@ -83,10 +84,23 @@
     # Usage: git sho <hash>
     sho = "!f() { ws_switches=$(git default-diff-ws-switches); git show ${ws_switches} --submodule=log $@; }; f"
 
+    # merge
     # Better (M)e(RG)e
     # Merge while ignore all space changes
     # Usage: git mrg <ref>
-    mrg = "merge -Xignore-space-change -Xignore-all-space -Xignore-space-at-eol -Xignore-cr-at-eol"
+    mrg = "!f() { ws_switches=$(git default-merge-ws-switches); git merge ${ws_switches} $@; }; f"
+    # Better (C)herry (P)ic(K)
+    # Cherry-pick while ignore all space changes
+    # Usage: git cpk <ref>
+    cpk = "!f() { ws_switches=$(git default-merge-ws-switches); git cherry-pick ${ws_switches} $@; }; f"
+    # Better (PUL)l
+    # Pull while ignore all space changes
+    # Usage: git pul <ref>
+    pul = "!f() { ws_switches=$(git default-merge-ws-switches); git pull ${ws_switches} $@; }; f"
+    # Better (REB)ase
+    # Rebase while ignore all space changes
+    # Usage: git reb <ref>
+    reb = "!f() { ws_switches=$(git default-merge-ws-switches); git rebase ${ws_switches} $@; }; f"
 
     # remote
     # (SYNC) the default branch (if branch not specified) with origin.
