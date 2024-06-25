@@ -45,14 +45,15 @@
     fet = !git fetch "$*" 2>/dev/null
     feta = fet --all
     # Using --ignore-all-space is risky because also ignore a white-space change where it changed from 1 space to 0 spaces.
-    default-diff-ws-switches = "!f() { echo '--ignore-space-change --ignore-space-at-eol --ignore-cr-at-eol --ignore-blank-lines'; }; f"
-    default-merge-ws-switches = "!f() { echo '-Xignore-space-change -Xignore-space-at-eol -Xignore-cr-at-eol'; }; f"
+    nows-diff = "!f() { git ${1} --ignore-space-change --ignore-space-at-eol --ignore-cr-at-eol --ignore-blank-lines --submodule=log ${@:2}; }; f"
+    nows-merge = "!f() { git ${1} -Xignore-space-change -Xignore-space-at-eol -Xignore-cr-at-eol ${@:2}; }; f"
 
     # status
     st = status --short --branch
 
     # log
     lg1 = "!f() { arg=${1:--1}; git log --abbrev-commit --pretty=logfmt1 ${arg} ${@:2}; }; f"
+    #                                                                           ^^^^^^ all args starting from 2nd arg if any
     head = lg1
     lg = "!f() { arg=${1:--10}; git lg1 --graph ${arg} ${@:2}; }; f"
     # Show commits from all refs except from refs/stacks/ (internal refs created by Stacked Git)
@@ -78,29 +79,29 @@
     # diff
     # Better (DIF)f
     # Don't show whitespace and blank line changes. Also show change logs related to changes in submodule hash change.
-    dif = "!f() { ws_switches=$(git default-diff-ws-switches); git diff ${ws_switches} --submodule=log $@; }; f"
+    dif = nows-diff diff
     # Better (SHO)w
     # Shows what changed in the commit and also shows change logs related to changes in submodule hash change.
     # Usage: git sho <hash>
-    sho = "!f() { ws_switches=$(git default-diff-ws-switches); git show ${ws_switches} --submodule=log $@; }; f"
+    sho = nows-diff show
 
     # merge
     # Better (M)e(RG)e
     # Merge while ignore all space changes
     # Usage: git mrg <ref>
-    mrg = "!f() { ws_switches=$(git default-merge-ws-switches); git merge ${ws_switches} $@; }; f"
+    mrg = nows-merge merge
     # Better (C)herry (P)ic(K)
     # Cherry-pick while ignore all space changes
     # Usage: git cpk <ref>
-    cpk = "!f() { ws_switches=$(git default-merge-ws-switches); git cherry-pick ${ws_switches} $@; }; f"
+    cpk = nows-merge cherry-pick
     # Better (PUL)l
     # Pull while ignore all space changes
     # Usage: git pul <ref>
-    pul = "!f() { ws_switches=$(git default-merge-ws-switches); git pull ${ws_switches} $@; }; f"
+    pul = nows-merge pull
     # Better (REB)ase
     # Rebase while ignore all space changes
     # Usage: git reb <ref>
-    reb = "!f() { ws_switches=$(git default-merge-ws-switches); git rebase ${ws_switches} $@; }; f"
+    reb = nows-merge rebase
 
     # remote
     # (SYNC) the default branch (if branch not specified) with origin.
