@@ -67,6 +67,11 @@
     # submodule
     sup = "submodule update --init"
 
+    # Hide submodule diffs in all git ops: status, diff, etc.
+    hidesub = "config diff.ignoreSubmodules all"
+    # Show submodule diffs in all git ops: status, diff, etc.
+    showsub = "config --unset diff.ignoreSubmodules"
+
     # remote
     # (SYNC) the default branch (if branch not specified) with origin.
     sync = "!f() { br=${1:-$(git default-branch)}; git checkout ${br}; git pull origin ${br}; git head; }; f"
