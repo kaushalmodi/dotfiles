@@ -93,7 +93,7 @@
     # Better (M)e(RG)e
     # Merge while ignore all space changes
     # Usage: git mrg <ref>
-    mrg = nows-merge merge
+    mrg = nows-merge merge --autostash
     # Better (C)herry (P)ic(K)
     # Cherry-pick while ignore all space changes
     # Usage: git cpk <ref>
@@ -101,11 +101,11 @@
     # Better (PUL)l
     # Pull while ignore all space changes
     # Usage: git pul <ref>
-    pul = nows-merge pull
+    pul = nows-merge pull --autostash
     # Better (REB)ase
     # Rebase while ignore all space changes
     # Usage: git reb <ref>
-    reb = nows-merge rebase
+    reb = nows-merge rebase --autostash
 
     # remote
     # (SYNC) the default branch (if branch not specified) with origin.
