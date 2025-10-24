@@ -66,16 +66,19 @@ XTerm.VT100.color4: cornflowerblue
 ! XTerm*faceName: Envy Code R
 ! XTerm.italicFont: xft:Envy Code R:italic:autohint=true
 
-XTerm*faceName: Iosevka
-XTerm.italicFont: xft:Iosevka:italic:autohint=true
+! XTerm*faceName: Iosevka
+! XTerm.italicFont: xft:Iosevka:italic:autohint=true
 
-XTerm*faceSize: 13
+! https://g.co/gemini/share/08cd8b3c809d
+XTerm*faceName: "Noto Color Emoji"
+
+! XTerm*faceSize: 13
 ! XTerm*fontMenu*fontdefault*Label: Default
 XTerm*xftAntialias: true
 XTerm*cjkWidth: false
 
 XTerm*locale: true
-xterm.utf8: true
+XTerm.utf8: true
 XTerm*utf8Title: true
 
 XTerm*bellIsUrgent: true
@@ -91,6 +94,7 @@ XTerm*borderWidth: 0
 XTerm*metaSendsEscape: true
 XTerm*eightBitInput: false
 
+! https://www.hypexr.org/linux_ruboff.php
 ! Fix the backspace key On Arch Linux, xterm sends ^H key when backspace is
 ! pressed. This breaks Ctrl+H key combination on Emacs. The workaround is making
 ! xterm sends ^? when backspace is pressed, by adding the following lines to X
@@ -163,10 +167,13 @@ UXTerm.VT100.color4: cornflowerblue
 ! UXTerm*faceName: Envy Code R
 ! UXTerm.italicFont: xft:Envy Code R:italic:autohint=true
 
-UXTerm*faceName: Iosevka
-UXTerm.italicFont: xft:Iosevka:italic:autohint=true
+! UXTerm*faceName: Iosevka
+! UXTerm.italicFont: xft:Iosevka:italic:autohint=true
 
-UXTerm*faceSize: 13
+! https://g.co/gemini/share/08cd8b3c809d
+UXTerm*faceName: "Noto Color Emoji"
+
+! UXTerm*faceSize: 13
 ! UXTerm*fontMenu*fontdefault*Label: Default
 UXTerm*xftAntialias: true
 UXTerm*cjkWidth: false
