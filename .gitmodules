@@ -1,3 +1,6 @@
 [submodule "emacs/dot-emacs.d"]
 	path = emacs/dot-emacs.d
 	url = https://kaushalmodi@github.com/kaushalmodi/.emacs.d
+[submodule "nim/nim"]
+	path = nim/nim
+	url = https://github.com/kaushalmodi/nim_config
