@@ -3,7 +3,10 @@
 
 [pretty]
     # git config --global pretty.logfmt1 'format:%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    # Commit date - relative
     logfmt1 = format:%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+    # Author date - short format YYYY-MM-DD
+    logfmt2 = format:%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%as) %C(bold blue)<%an>%Creset
 
 [alias]
     # foo = "!f() { ; }; f"
@@ -52,7 +55,7 @@
     st = status --short --branch
 
     # log
-    lg1 = "!f() { arg=${1:--1}; git log --abbrev-commit --pretty=logfmt1 ${arg} ${@:2}; }; f"
+    lg1 = "!f() { arg=${1:--1}; git log --abbrev-commit --pretty=logfmt2 ${arg} ${@:2}; }; f"
     #                                                                           ^^^^^^ all args starting from 2nd arg if any
     head = lg1
     lg = "!f() { arg=${1:--10}; git lg1 --graph ${arg} ${@:2}; }; f"
